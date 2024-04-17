@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="createprofilebody">
+        <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
+        <div class="formimportpicture">
+          <p>Tải lên ảnh CCCD/ CMND</p>
+          <div class="uploadpicture"></div>
+          <div style="width: 477px; height: 12px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
+            <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
+            <div style="color: #959DB2; font-size: 8px; font-family: Poppins; font-weight: 400; line-height: 11.52px; word-wrap: break-word">or</div>
+            <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
+          </div>
+          <p>Import from URL</p>
+          <div style="width: 477px; height: 40px; position: relative; background: #F1F4F9; border-radius: 6px; overflow: hidden">
+            <div style="left: 11px; top: 11px; position: absolute; color: #AAB6C1; font-size: 12px; font-family: Poppins; font-weight: 400; line-height: 18px; word-wrap: break-word">Add file URL</div>
+            <div style="height: 28px; padding-left: 12px; padding-right: 12px; left: 410px; top: 6px; position: absolute; border-radius: 6px; overflow: hidden; justify-content: center; align-items: center; gap: 4px; display: inline-flex">
+              <div style="text-align: center; color: rgba(26, 26, 26, 0.60); font-size: 10px; font-family: Poppins; font-weight: 500; line-height: 22px; word-wrap: break-word">Upload</div>
+            </div>
+          </div>
+          <div class="buttonprofile">
+            <p>Trung tâm trợ giúp</p>
+            <button type="button" class="cancelbtn" id="cancelbtn">Xóa</button>
+            <button type="button" class="donebtn" id="donebtn">Tạo</button>
+          </div>
+        </div>
+          <p>Aenean sit amet magna vel magna fringilla fermentum. Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.</p>
+          <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
+          <input type="text" class="email" id="email" name="email" placeholder="Email ...">
+          <input type="number" class="numberphone" id="numberphone" name="numberphone" placeholder="Số điện thoại ...">
+          <input type="company" class="company" id="company" name="company" placeholder="Công ty ...">
+          <input type="checkbox" class="privacy" id="privacy" name="privacy">
+          <button type="createbtn" class="createbtn" id="createbtn">Tạo 
+            <img src="{% static 'icon/send.png' %}" alt="err" width="20px" height="20px">
+          </button>
+    </div>
+    {% include 'footer.html' %}
+    
+    
+</body>
+</html>

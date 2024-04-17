@@ -2,8 +2,161 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
 </head>
 <body>
+   
+    <div class="background">
+        <div class="vuong300 bg00BCD4 pos01"></div>
+        <div class="vuong200 bg2196F3 pos02"></div>
+        <div class="vuong150 bg00BCD4 pos03"></div>
+        <div class="vuong300 bg2196F3 pos04"></div>
+        <div class="vuong1300 bg2196F3 pos05"></div>
+        <div class="vuong300 bg00BCD4 pos06"></div>
+        <div class="vuong200 bg2196F3 pos07"></div>
+    </div>
     {% include 'header.html' %}
+    <div class="maincontent">
+        <div class="banner">
+            <h1 class="title">Khởi tạo hồ sơ</h1>
+            <h2 class="describe">Thủ tục nhanh chóng - chuyên nghiệp</h2>
+            <div class="button">
+                <button type="button" class="createprofile">
+                    Tạo hồ sơ
+                    <img src="{% static 'icon/send.png' %}" alt="err">
+                </button>
+                <button type="button" class="editprofile">
+                    Sửa hồ sơ
+                    <img src="{% static 'icon/send.png' %}" alt="err">
+                </button>
+            </div>
+        </div>
+        <div class="about" id="about">
+            <div class="left">
+                <div class="artwork">
+                    <div class="aboutdecor"><span>Giới thiệu</span></div>
+                    <div class="mask01"></div>
+                    <div class="mask02"></div>
+                    <div class="mask03"></div>
+                </div>
+            </div>
+            <div class="right">
+                <h1>Lorem Ipsum</h1>
+                <div class="counter">
+                    <div class="empleyee">
+                        <h3>+200</h3>
+                        <div></div>
+                        empleyee
+                    </div>
+                    <div class="projects">
+                        <h3>+200</h3>
+                        <div></div>
+                        projects
+                    </div>
+                    <div class="clients">
+                        <h3>+200</h3>
+                        <div></div>
+                        clients
+                    </div>
+                </div>
+                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+            </div>
+        </div>
+        <div class="ourservices" id="services">
+            <h1> Dịch vụ của chúng tôi</h1>
+            <div class="services">
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Lorem Ipsum</h1>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+                    <button type="button" class="seedetail" id="seedetail">See detail</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Lorem Ipsum</h1>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+                    <button type="button" class="seedetail" id="seedetail">See detail</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Lorem Ipsum</h1>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+                    <button type="button" class="seedetail" id="seedetail">See detail</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="ourexpertise" id="expertise">
+            <div class="left">
+                <div class="illustration">
+                    <div class="rectangle01"></div>
+                    <div class="rectangle02"></div>
+                    <div class="rectangle03"></div>
+                    <div class="rectangle04">
+                        <span class="textexper"> Kinh nghiệm <br>của chúng tôi</span>
+                    </div>
+                </div>
+                <img src="{% static 'icon/camera.png' %}" alt="err" class="cameraicon">
+                <img src="{% static 'icon/youtube.png' %}" alt="err" class="youtubeicon">
+                <img src="{% static 'icon/mail.png' %}" alt="err" class="mailicon">
+                <img src="{% static 'icon/star.png' %}" alt="err" class="staricon">
+                <img src="{% static 'icon/tack.png' %}" alt="err" class="tackicon">
+                <img src="{% static 'icon/hotspot.png' %}" alt="err" class="hotspoticon">
+                <img src="{% static 'icon/time.png' %}" alt="err" class="timeicon">
+            </div>
+            <div class="right">
+                <div class="titlexper">
+                    Nulla lobortis nunc vitae nisi semper semper velit
+                </div>
+                <div class="describe">
+                    Curabitur egestas consequat lorem, vel fermentum augue porta id. Aliquam lobortis magna neque, gravida consequat velit venenatis at. Duis sed augue.
+                </div>
+                <div class="tag">
+                    <div class="maketing">Maketing</div>
+                    <div class="seo">SEO</div>
+                    <div class="socialmedia">Social Media</div>
+                    <div class="webdevelopment">Web Development</div>
+                    <div class="uidesign">UI Design</div>
+                    <div class="mobileapps">Mobile Apps</div>
+                    <div class="photography">Photography</div>
+                    <div class="companyprofile">Company Profile</div>
+                    <div class="visualediting">Visual Editing</div>
+                </div>
+            </div>
+        </div>
+        <div class="casestudies" id="casestudy">
+            <div class="left">
+                <h1>Case Studies</h1>
+                <div class="titlecare">
+                    <button type="button" class="corporate">Corporate</button>
+                    <button type="button" class="advertising">Advertising</button>
+                    <button type="button" class="maketing">Maketing</button>
+                    <button type="button" class="govemment">Govemment</button>
+                    <button type="button" class="creeative">creeative</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="row01">
+                    <div class="case01">1</div>
+                    <div class="case02">
+                        <img src="{% static 'img/logo.png' %}" alt="err">
+                    </div>
+                </div>
+                <div class="row02">
+                    <div class="case03">3</div>
+                    <div class="case04">4</div>
+                    <div class="case05">5</div>
+                </div>
+                <div class="row03">
+                    <div class="case06">6</div>
+                    <div class="case07">7</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
