@@ -21,12 +21,12 @@
         <div class="banner">
             <h1 class="title">Khởi tạo hồ sơ</h1>
             <h2 class="describe">Thủ tục nhanh chóng - chuyên nghiệp</h2>
-            <div class="button">
-                <button type="button" class="createprofile">
+            <div class="createprofile">
+                <button type="button" class="createprofile" id="createprofile">
                     Tạo hồ sơ
                     <img src="{% static 'icon/send.png' %}" alt="err">
                 </button>
-                <button type="button" class="editprofile">
+                <button type="button" class="editprofile" id="editprofile">
                     Sửa hồ sơ
                     <img src="{% static 'icon/send.png' %}" alt="err">
                 </button>
@@ -155,6 +155,7 @@
             </div>
         </div>
     </div>
+    <img src="{% static 'img/wave-haikei.png' %}" alt="err" class="backgrfooter">
     {% include 'footer.html' %}
 
     <script src="{% static 'js/script.js' %}"></script>

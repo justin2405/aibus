@@ -82,14 +82,16 @@ body {
   width: 100%;
   color: rgb(107, 107, 107);
 }
-.button{
+
+.createprofile{
+ 
   justify-content: center;
   width: 100%;
   text-align: center;
   display: flex;
   /* align-items: center; */
 }
-.button button{
+.createprofile button{
   color: #00BCD4;
   font-size: 23px;
   margin: 40px;
@@ -106,13 +108,13 @@ body {
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
 }
-.button button:hover{
+.createprofile button:hover{
   /*background-color: #e2fbff;*/
   box-shadow: inset 400px 0 0 0 #def3f6;
   border: 2px solid #9cdee6;
   /*color: #f0f0f0;*/
 }
-.button button img{
+.createprofile button img{
   margin-left: 20px;
   width: 28px;
   height: 28px;
@@ -697,6 +699,7 @@ transform: rotate(45deg);
   background-size: 100%;
 }
 .homebtn{
+  
   position: relative;
   top: 70px;
   left: -600px;
@@ -768,4 +771,208 @@ transform: rotate(45deg);
 }
 .createprofilebody h1{
   text-align: center;
+}
+.createprofilebody{
+  height:1500px;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
+.formimportpicture{
+  width: 700px;
+  height: 600px;
+  
+  border-radius: 10px;
+  box-shadow: 0 0 25px -4px rgb(132, 177, 255);
+}
+.formimportpicture p{
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  left: -190px
+}
+.uploadpicture{
+  margin-top: 40px;
+  margin-left: 65px;
+  width:570px;
+  height: 280px;
+  border-width: 3px;
+  border-color: rgb(214, 214, 214);
+  border-style: dashed;
+  border-radius: 10px;
+}
+.buttonprofile .cancelbtn, .buttonprofile .donebtn{
+  color: #00BCD4;
+  font-size: 23px;
+  margin: 5px;
+  width: 100px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border: 2px solid #00BCD4;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+.buttonprofile{
+  top: 20px;
+  position: relative;
+  left: 100px;
+  display: flex;
+}
+.buttonprofile p{
+  margin-right: 200px;
+  bottom: 0px;
+  right: 0px;
+  left: 0;
+  top: 0px;
+  position: relative;
+  font-size: 10px;
+}
+.uploadpicture img{
+  position: relative;
+  width: 170px;
+}
+.uploadpicture h5,.uploadpicture h6{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.uploadpicture h5 a{
+  color: #0D47A1;
+}
+.infor h6{
+  color: #959DB2;
+}
+.infor{
+  position: relative;
+  top: 40px;
+}
+.infor .name,.infor .email,.infor .numberphone,.infor .company{
+  width: 250px;
+  position: relative;
+  top: 20px;
+  left: -70px;
+  font-size: 17px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.infor .email,.infor .company{
+  left: 80px;
+}
+.infor .message {
+  width: 655px;
+  height: 50px;
+  position: relative;
+  top: 20px;
+  left: 5px;
+  font-size: 17px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.checkbox {
+  top: 40px;
+  position: relative;
+  left: -150px;
+}
+.checkbox span{
+  left: 70px;
+  font-size: 10px;
+  position: relative;
+}
+.checkbox .createbtn{
+  position: relative;
+  left: 250px;
+}
+.checkbox .privacy{
+  position: relative;
+  left: 70px;
+}
+.createbtn{
+  color: #00BCD4;
+  font-size: 18px;
+  margin: 40px;
+  width: 100px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border: 2px solid #00BCD4;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+.createbtn:hover{
+  /*background-color: #e2fbff;*/
+  box-shadow: inset 400px 0 0 0 #def3f6;
+  border: 2px solid #9cdee6;
+  /*color: #f0f0f0;*/
+}
+.successpage{
+  height: 700px;
+  position: relative;
+  top: 50px;
+  text-align: center;
+}
+.orderdetail{
+  text-align: left;
+  position: relative;
+  left:400px;
+  border: 2px solid #7b7b7b;
+  width: 700px;
+}
+.infordetail{
+  background-color: #eaeaea;
+}
+.dash{
+  margin-left: 3%;
+  width: 94%;
+  height: 2px;
+  background-color: #7b7b7b;
+  position: relative;
+}
+.infordetail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infordetail h3{
+  padding: 0 23px 0 23px;
+}
+.subtotal{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1px));
+}
+.subtotal h5{
+  
+  padding-left: 450px;
+}
+.subtotal h4{
+  
+  padding-left: 20px;
+}
+.orderdetail h2{
+  padding-left: 20px;
+}
+.download{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  text-align: center;
+}
+.download span{
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  
+}
+#load{
+  color: #05477b;
 }

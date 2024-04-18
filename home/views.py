@@ -15,3 +15,7 @@ def Createprofile(request):
     context = {}
     return render(request, "createprofile.html", context)
 
+def Success(request):
+    context = {}
+    return render(request, "success.html", context)
+

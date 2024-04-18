@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="successpage">
+        <img src="{% static 'icon/checked.png' %}" alt="err" width="80px" height="80px">
+        <h1>Cảm ơn đã sử dụng dịch vụ</h1>
+        <div class="orderdetail">
+            <p>Order Details</p>
+            <p>Status :</p>
+            <div class="infordetail">
+                <div class="horizontal"></div>
+                <h3>Product No</h3>
+                <h3>Product Description</h3>
+                <h3>Unit Price</h3>
+                <h3>Quantity</h3>
+                <h3>Product Total</h3>
+            </div>
+                <div class="dash"></div>
+                <div class="subtotal">
+                <h4>Sub total</h4>
+                <h5>$</h5><p></p>
+                <h4>Total</h4>
+                <h5>$</h5>
+                </div>
+                <div class="dash"></div>
+                <div class="download">
+                <span>Dowload Order Details PDF </span>
+                <img src="{% static 'icon/pdf.png' %}" alt="err" width="40px" height="40px">
+                </div>      
+                
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
