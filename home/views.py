@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.template import *
 from .templates import *
-import pytesseract
+import pytesseract  # type: ignore
 from PIL import Image
 
 

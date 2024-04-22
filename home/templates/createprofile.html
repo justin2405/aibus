@@ -29,7 +29,7 @@
         <div style="display: flex;align-items: center;justify-content: center; width: 100%;">
         <div id="dropArea" style="text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;">
           <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
-          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none;" id="clickload" onclick="load()"> chọn file</button> '
+          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none; cursor:pointer" id="clickload" onclick="load()"> chọn file</button> '
           </header>
           <p style="display: flex;justify-content: center;align-items: center;color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</p>
           <input type="file" hidden name="" id="loadpicture" >
