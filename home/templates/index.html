@@ -1,9 +1,186 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
 </head>
 <body>
+    <div class="background">
+        <div class="vuong300 bg00BCD4 pos01"></div>
+        <div class="vuong200 bg2196F3 pos02"></div>
+        <div class="vuong150 bg00BCD4 pos03"></div>
+        <div class="vuong300 bg2196F3 pos04"></div>
+        <div class="vuong1300 bg2196F3 pos05"></div>
+        <div class="vuong300 bg00BCD4 pos06"></div>
+        <div class="vuong200 bg2196F3 pos07"></div>
+    </div>
     {% include 'header.html' %}
+    <div class="maincontent">
+        <div class="banner">
+            <h1 class="title" style="font-size: 35px;">TẠO HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
+            <h2 class="describe" style="font-size: 20px;">Bạn thấy phức tạp, khó khăn, mệt mỏi, mất nhiều thời gian khi làm hồ sơ đăng ký kinh doanh và sửa đổi.<p></p>
+                Chúng tôi giải quyết tất cả những phiền toái đó với một bộ hồ sơ chính xác!<p></p>
+                Tạo ngay hồ sơ đăng ký kinh doanh thật dễ dàng!</h2>
+            <div class="createprofile">
+                <button type="button" class="createprofile" id="createprofile">
+                    Tạo hồ sơ
+                    <img src="{% static 'icon/send.png' %}" alt="err">
+                </button>
+                <button type="button" class="editprofile" id="editprofile">
+                    Sửa hồ sơ
+                    <img src="{% static 'icon/send.png' %}" alt="err">
+                </button>
+            </div>
+        </div>
+        <div class="about" id="about">
+            <div class="left">
+                <div class="artwork">
+                    <div class="aboutdecor"><span>Giới thiệu</span></div>
+                    <div class="mask01" style="overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 100%;height: 100%;">
+                    </div>
+                    <div class="mask02" style="overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/8512442/pexels-photo-8512442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 150%;height: 150%;transform: rotate(-45deg);position: relative;top:-30px;left: -30px;">
+                    </div>
+                    <div class="mask03" style="overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/9909077/pexels-photo-9909077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 170%;height: 170%;transform: rotate(-45deg);position: relative;top:-30px">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h1>Thương hiệu bậc nhất tiên phong đồng hành giúp tạo hồ sơ đăng ký kinh doanh</h1>
+                <div class="counter">
+                    <div class="empleyee">
+                        <h3>+200</h3>
+                        <div></div>
+                        Nhân viên
+                    </div>
+                    <div class="projects">
+                        <h3>+200</h3>
+                        <div></div>
+                        Dự án
+                    </div>
+                    <div class="clients">
+                        <h3>+200</h3>
+                        <div></div>
+                        Khách hàng
+                    </div>
+                </div>
+                <h2 style="text-indent: 20px;">    Hồ sơ đăng ký kinh doanh đóng vai trò quan trọng và cần thiết mang tính pháp lý bắt buộc, 
+                    thể hiện sự công nhận sự ra đời của một thực thể kinh doanh. 
+                    Tuy nhiên, các doanh nghiệp gặp rất nhiều khó khăn trong quá trình tạo hồ sơ làm kéo dài thời gian vô ích. 
+                    Chính vì vậy, nên chúng tôi đã ra đời dịch vụ tạo bộ hồ sơ đăng ký kinh doanh chuyên nghiệp, đơn giản, nhanh chóng và chính xác.
+                    Chúng tôi đã hỗ trợ hàng nghìn doanh nghiệp hoàn thành bộ hồ sơ đăng ký kinh doanh của riêng mình.
+                    <p></p>
+                       Trong tương lai chúng tôi sẽ đứng đầu với các giải pháp tốt nhất giúp các thủ tục giấy tờ đơn giản hóa một cách tối ưu.</h2>
+            </div>
+        </div>
+        <div class="ourservices" id="services">
+            <h1> Dịch vụ của chúng tôi</h1>
+            <div class="services">
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Tạo hồ sơ kinh doanh cho doanh nghiệp tư nhân</h1>
+                    
+                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty hợp danh</h1>
+                    
+                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                    
+                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 2 thành viên trở lên</h1>
+                    
+                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                </div>
+                <div class="detail01">
+                    <img src="{% static 'img/mibo.jpg' %}" alt="err">
+                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty cổ phần</h1>
+                    
+                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="ourexpertise" id="expertise">
+            <div class="left">
+                <div class="illustration">
+                    <div class="rectangle01"></div>
+                    <div class="rectangle02"></div>
+                    <div class="rectangle03"></div>
+                    <div class="rectangle04">
+                        <span class="textexper"> Kinh nghiệm <br>của chúng tôi</span>
+                    </div>
+                </div>
+                <img src="{% static 'icon/camera.png' %}" alt="err" class="cameraicon">
+                <img src="{% static 'icon/youtube.png' %}" alt="err" class="youtubeicon">
+                <img src="{% static 'icon/mail.png' %}" alt="err" class="mailicon">
+                <img src="{% static 'icon/star.png' %}" alt="err" class="staricon">
+                <img src="{% static 'icon/tack.png' %}" alt="err" class="tackicon">
+                <img src="{% static 'icon/hotspot.png' %}" alt="err" class="hotspoticon">
+                <img src="{% static 'icon/time.png' %}" alt="err" class="timeicon">
+            </div>
+            <div class="right">
+                <div class="titlexper">
+                    Nulla lobortis nunc vitae nisi semper semper velit
+                </div>
+                <div class="describe">
+                    Curabitur egestas consequat lorem, vel fermentum augue porta id. Aliquam lobortis magna neque, gravida consequat velit venenatis at. Duis sed augue.
+                </div>
+                <div class="tag">
+                    <div class="maketing">Maketing</div>
+                    <div class="seo">SEO</div>
+                    <div class="socialmedia">Social Media</div>
+                    <div class="webdevelopment">Web Development</div>
+                    <div class="uidesign">UI Design</div>
+                    <div class="mobileapps">Mobile Apps</div>
+                    <div class="photography">Photography</div>
+                    <div class="companyprofile">Company Profile</div>
+                    <div class="visualediting">Visual Editing</div>
+                </div>
+            </div>
+        </div>
+        <div class="casestudies" id="casestudy">
+            <div class="left">
+                <h1>Case Studies</h1>
+                <div class="titlecare">
+                    <button type="button" class="corporate">Corporate</button>
+                    <button type="button" class="advertising">Advertising</button>
+                    <button type="button" class="maketing">Maketing</button>
+                    <button type="button" class="govemment">Govemment</button>
+                    <button type="button" class="creeative">creeative</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="row01">
+                    <div class="case01">1</div>
+                    <div class="case02">
+                        <img src="{% static 'img/logo.png' %}" alt="err">
+                    </div>
+                </div>
+                <div class="row02">
+                    <div class="case03">3</div>
+                    <div class="case04">4</div>
+                    <div class="case05">5</div>
+                </div>
+                <div class="row03">
+                    <div class="case06">6</div>
+                    <div class="case07">7</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

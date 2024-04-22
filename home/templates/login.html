@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
+</head>
+<body class="backgrlogin">
+    
+    <div class="loginbody">
+        <button type="button" class="homebtn" id="homebtn">
+            <img src="{% static 'icon/house.png' %}" alt="err" width="50px" height="50px" >
+        </button>
+            <h1>ĐĂNG NHẬP / ĐĂNG KÝ</h1>
+            <p>Aenean sit amet magna vel magna fringilla fermentum.<br> Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.</p>
+            <input type="text" class="user" id="user" name="user" placeholder="Tên đăng nhập/ email ..."><p></p>
+            <input type="password" class="pass" id="pass" name="pass" placeholder="Mật khẩu ..."><p></p>
+            <button type="button" class="loginbtn" id="loginbtn">Đăng nhập</button>
+            <button type="button" class="registerbtn" id="registerbtn">Đăng ký</button><p></p>
+            <button type="button" class="logingooglebtn" id="logingooglebtn">
+                
+                <img src="{% static 'icon/google.png' %}" alt="err" width="30px" height="30px">
+                Đăng nhập với google
+        </button>
+    </div>
+</body>
+</html>
