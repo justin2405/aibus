@@ -1,25 +1,61 @@
+const input = document.querySelector('#loadpicture');
+const button = document.querySelector('#clickload');
+const dropArea = document.querySelector('#dropArea');
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+      
+    } else {
+      x.className = "topnav";
+      
+    }
+  }
+
 // crate profile
 document.getElementById('createprofile').addEventListener('click', function() {
     window.location.href = "createprofile"; 
 });
 
 //edit profile
-document.getElementById('editprofile').addEventListener('click', function() {
+/*document.getElementById('editprofile').addEventListener('click', function() {
     window.location.href = "createprofile"; 
-});
-//upload ảnh
-document.getElementById('fileInput').addEventListener('change', function(event) {
-    var file = event.target.files[0]; // Lấy file đầu tiên từ danh sách file đã chọn
-  if (file) {
-        var reader = new FileReader(); // Tạo một FileReader object để đọc file
+});*/
 
-        reader.onload = function(e) {
-            var image = document.createElement('img');
-            image.src = e.target.result; // Set source của ảnh là dữ liệu từ file đã chọn
-           document.getElementById('uploadpicture').innerHTML = ''; // Xóa nội dung cũ trong container ảnh
-          document.getElementById('uploadpicture').appendChild(image); // Thêm ảnh vào container
-        };
 
-        reader.readAsDataURL(file); // Đọc file dưới dạng URL dữ liệu (data URL)
+// kéo thả ảnh
+
+function load(){
+    input.click();
+    /*console.log(button);*/
+    input.addEventListener('change', function(){
+        const file = this.files[0];
+        showFile(file);
+        /*console.log('load');*/
+    })
+}
+
+
+dropArea.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    showFile(file);
+})
+
+
+function showFile(file){
+    const fileType = file.type;
+    const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+    if(validExtensions.includes(fileType)){
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+            const fileUrl = fileReader.result;
+            const imgTag = `<img src="${fileUrl}">`;
+            dropArea.innerHTML = imgTag;
+        }
+        fileReader.readAsDataURL(file);
+    } else{
+        alert('Không hỗ trợ định dạng này');
+        
     }
-});
+}

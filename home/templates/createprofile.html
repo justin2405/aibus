@@ -5,21 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+    
 
 </head>
 <body>
     {% include 'header.html' %}
+    <!--
+    <div>
+      <div style="display: flex;align-items: center;justify-content: center; width: 100%;">
+        <div class="border-dashed border-2 rounded-lg p-4 " id="dropArea" style="width: 40%; height:300px;align-items: center;justify-content: center;">
+          <div class="flex justify-center items-center"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
+          <header class="text-lg flex justify-center items-center">Kéo thả để tải file lên, hoặc '<button class="text-blue-500 underline" id="clickload" onclick="load()"> chọn file</button> '</header>
+          <p class="flex justify-center items-center text-gray-400 text-sm">Hỗ trợ: PNG, JPG, JPEG, WEBP</p>
+          <input type="file" hidden name="" id="loadpicture" >
+        </div>
+      </div>
+    </div>-->
+    
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
       <div class="formimportpicture">
         <p>Tải lên ảnh CCCD/ CMND</p>
-        <div class="uploadpicture" >
-          <img src="{% static 'icon/Picture.png' %}" alt="err">
-          
-          <h5>Thả hình ảnh của bạn ở đây hoặc <label for="fileInput" id="load">tải lên</label></h5>
-          <h6>Hỗ trợ: PNG, JPG, JPEG, WEBP</h6>
+        <div style="display: flex;align-items: center;justify-content: center; width: 100%;">
+        <div id="dropArea" style="text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;">
+          <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
+          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none;" id="clickload" onclick="load()"> chọn file</button> '
+          </header>
+          <p style="display: flex;justify-content: center;align-items: center;color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</p>
+          <input type="file" hidden name="" id="loadpicture" >
         </div>
-        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+      </div>
         <div style="width: 550px; height: 30px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
           <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
           <div style="color: #959DB2; font-size: 15px; font-family: Poppins; font-weight: 400; line-height: 11.52px; word-wrap: break-word">or</div>
@@ -59,6 +74,6 @@
     </div>
     {% include 'footer.html' %}
     
-    
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -7,17 +7,51 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.header {
-  overflow: hidden;
+.header .logo{
+  width:50%;
   
+}
+.header {
+  display: flex;
+  overflow: hidden;
   padding: 20px 10px;
 }
+.topnav .icon {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .topnav a:not(.icon) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
 
+@media screen and (max-width: 500px) {
+  .header .logo{
+    width:90%;
+    float:left;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 .header a {
   float: left;
   color: black;
-  text-align: center;
+  
   padding: 18px;
   text-decoration: none;
   font-size: 18px; 
@@ -26,7 +60,6 @@ body {
 }
 
 .header a.logo {
-  
   margin-left: 15px;
   padding: 0px;
   /* padding-bottom: 100%; */
@@ -46,8 +79,12 @@ body {
   color: white;
 }
 
-.header-right {
+.topnav {
   float: right;
+  overflow: hidden;
+}
+.header-right #toggle{
+  display: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -57,15 +94,20 @@ body {
     text-align: left;
   }
   
-  .header-right {
+  .header-right a{
     float: none;
   }
+  .header-right a#toggle{
+    float: right;
+    display: block;
+  }
+  
 }
 .maincontent{
   margin-bottom: 30px;
   /* overflow: hidden; */
   width: 100%;
-  height: 2397px;
+  height: 20%;
 }
 .banner{
   display: contents;
@@ -93,7 +135,7 @@ body {
 }
 .createprofile button{
   color: #00BCD4;
-  font-size: 23px;
+  font-size: 20px;
   margin: 40px;
   width: 200px;
   height: 50px;
@@ -120,6 +162,7 @@ body {
   height: 28px;
 }
 .about{
+  height: 20%;
   /* height: 1000px; */
   margin-top: 130px;
   margin-left: 32px;
@@ -128,19 +171,24 @@ body {
   width: 100%;
 }
 .about .left{
-  width: 50%;
+  float: left;
 }
 .left .artwork{
-  width: 100%;
+  
+  width: 400px;
+  height: 400px;
+  transform: rotate(45deg);
+
+  margin-left: 40px;
 }
 .artwork .aboutdecor{
-  top: 567px;
-  position: absolute;
+  position: relative;
+  top: 173px;
   width: 200px;
   height: 200px;
   background-color: #2196F3;
   border-radius: 15%;
-  transform: rotate(45deg);
+
   margin-left: 32px;
 }
 .aboutdecor span{
@@ -156,49 +204,53 @@ body {
   align-items: center;
 }
 .artwork .mask01{
+  margin-left: 32px;
+  position: relative;
+  top: -180px;
 border-radius: 25px;
-left: 168px;
-top: 524px;
-position: absolute;
-padding-top: -120px;
-width: 305px;
-height: 123px;
+width: 322px;
+height: 134px;
 background-color: #2196F3;
-transform: rotate(45deg);
+
 }
+
 .artwork .mask02{
-  position: absolute;
-  width: 94px;
-  height: 94px;
-  background-color: #2196F3;
-  border-radius: 15%;
-  transform: rotate(45deg);
+  left: 222px;
+  margin-left: 32px;
+  position: relative;
+  top: -166px;
   border-radius: 25px;
-  left: 264px;
-  top: 692px;
+  width: 95px;
+  height: 95px;
+  background-color: #2196F3;
+  
 }
 .artwork .mask03{
-  position: absolute;
-  width: 94px;
-  height: 94px;
-  background-color: #2196F3;
-  border-radius: 15%;
-  transform: rotate(45deg);
+  
+  left: 222px;
+  margin-left: 32px;
+  position: relative;
+  top: -156px;
   border-radius: 25px;
-  left: 193px;
-  top: 762px;
+  width: 95px;
+  height: 95px;
+  background-color: #2196F3;
+  
 }
 .about .right{
-  top: 494px;
-  left: 538px;
-  position: absolute; 
-  font-weight: bold;
+  margin-left: 80px;
+  float: right;
 }
 .right h1{
-  font-size: 40px;
+  width: 95%;
+  font-size: 29px;
 }
 .right h2{
+  margin-top: 30px;
+  margin-left: 10px;
+  width: 95%;
   color: #737373;
+  font-size: 18px;
 }
 .right .counter{
   height: 64px;
@@ -207,34 +259,34 @@ transform: rotate(45deg);
 .counter .clients{
   color: rgb(75 75 75);
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 }
 .counter .clients div, .counter .projects div, .counter .empleyee div{
   margin-bottom: 10px;
   margin-left: 29px;
   background-color: #2196F3;
-  width: 44px;
+  width: 50px;
   height: 5px;
   border-radius: 7px;
 }
 .counter .clients h3{
-  font-size: 30px;
+  font-size: 35px;
   color: #000000;
   margin-top: 0px;
   margin-bottom:5px;
 }
 .counter .projects h3{
-  font-size: 30px;
+  font-size: 35px;
   color: #000000;
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom:5px;
 }
 .counter .empleyee h3{
-  font-size: 30px;
+  font-size: 35px;
   color: #000000;
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom:5px;
 }
 .counter .projects{
   color: rgb(75 75 75);
@@ -250,11 +302,10 @@ transform: rotate(45deg);
   height: 100px;
 }
 .ourservices{
+  margin-top: 60px;
   padding-bottom: 30px;
   background-color: #f3faff;
   text-align: center;
-  top: 960px;
-  position: absolute;
   width: 100%;
 }
 .services{
@@ -264,8 +315,8 @@ transform: rotate(45deg);
   justify-content: center;
 }
 .services div{
-  width: 250px;
-  height: 300px;
+  width: 230px;
+  height: 220px;
   background-color: #ffffff;
   margin-left: 20px;
   margin-top: 30px;
@@ -274,18 +325,19 @@ transform: rotate(45deg);
 }
 .detail01 img{
   margin-top: -25px;
-  width: 220px;
-  height: 130px;
+  width: 200px;
+  height: 110px;
   border-radius: 10px;
 }
 .detail01 h1{
-  font-size: 25px;
+  font-size: 15px;
 }
 .detail01 h2{
   font-size: 15px;
   color: #737373;
 }
 .detail01 button{
+  margin-top: 30px;
   background-color: #ffffff;
   border: 2px solid #00BCD4;
   width: 180px;
@@ -308,8 +360,7 @@ transform: rotate(45deg);
 }
 .ourexpertise{
   display: flex;
-  top: 1516px;
-  position: absolute;
+  margin-top: 120px;
   width: 100%;
 }
 .illustration .rectangle02{
@@ -444,8 +495,7 @@ transform: rotate(45deg);
 }
 .casestudies{
   display: flex;
-  top: 2050px;
-  position: absolute;
+  margin-top: 100px;
   padding-left: 59px;
 }
 .casestudies .left{
@@ -539,34 +589,26 @@ transform: rotate(45deg);
 .footer{
   margin-right: 35px;
   margin-left: 35px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(268px, 1px)); /* Mỗi cột có chiều rộng tối thiểu 200px và tối đa là 1 phần tử 1fr */
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
 }
 .footer .col01{
   /* background-color: #00BCD4; */
   
 }
+.footer .col{
+  flex: 1 0;
+    
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
 .footer .col01 img{
   -webkit-filter: grayscale(1);    
     filter: grayscale(1);
 }
-.footer .col02{
-  margin-left: 25px;
-  /* background-color: #a200d4; */
-}
-.footer .col03{
-  margin-left: 25px;
-  /* background-color: #d40040; */
-}
-.footer .col04{
-  margin-left: 25px;
-  /* background-color: #00d420; */
-}
-.footer .col05{
-  /* background-color: #d49800; */
-  margin-left: 25px;
-}
+
 .col05{
   display: flex;
   justify-content: center;

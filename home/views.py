@@ -19,3 +19,6 @@ def Success(request):
     context = {}
     return render(request, "success.html", context)
 
+def Error(request):
+    context = {}
+    return render(request, "error.html", context)
