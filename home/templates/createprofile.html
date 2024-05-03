@@ -10,53 +10,61 @@
 </head>
 <body>
     {% include 'header.html' %}
-    <!--
-    <div>
-      <div style="display: flex;align-items: center;justify-content: center; width: 100%;">
-        <div class="border-dashed border-2 rounded-lg p-4 " id="dropArea" style="width: 40%; height:300px;align-items: center;justify-content: center;">
-          <div class="flex justify-center items-center"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
-          <header class="text-lg flex justify-center items-center">Kéo thả để tải file lên, hoặc '<button class="text-blue-500 underline" id="clickload" onclick="load()"> chọn file</button> '</header>
-          <p class="flex justify-center items-center text-gray-400 text-sm">Hỗ trợ: PNG, JPG, JPEG, WEBP</p>
-          <input type="file" hidden name="" id="loadpicture" >
-        </div>
-      </div>
-    </div>-->
     
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
       <div class="formimportpicture">
-        <p>Tải lên ảnh CCCD/ CMND</p>
-        <div style="display: flex;align-items: center;justify-content: center; width: 100%;">
-        <div id="dropArea" style="text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;">
-          <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
-          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none; cursor:pointer" id="clickload" onclick="load()"> chọn file</button> '
-          </header>
-          <p style="display: flex;justify-content: center;align-items: center;color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</p>
-          <input type="file" hidden name="" id="loadpicture" >
+        <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
+          <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;/*border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;*/position: relative;">
+            <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 180px; height: 180px;"></div>
+            <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải lên
+            </header>
+            <span style="color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</span>
+            <input type="file" hidden name="" id="loadpicture">
+          </div>
         </div>
-      </div>
         <div style="width: 550px; height: 30px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
           <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
           <div style="color: #959DB2; font-size: 15px; font-family: Poppins; font-weight: 400; line-height: 11.52px; word-wrap: break-word">or</div>
           <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
         </div>
-        <p>Import from URL</p>
-        <div style="margin-left: 111.5px; width: 477px; height: 40px; position: relative; background: #F1F4F9; border-radius: 6px; overflow: hidden">
-          <div style="left: 11px; top: 11px; position: absolute; color: #AAB6C1; font-size: 12px; font-family: Poppins; font-weight: 400; line-height: 18px; word-wrap: break-word">Add file URL</div>
-          <div style="height: 28px; padding-left: 12px; padding-right: 12px; left: 410px; top: 6px; position: absolute; border-radius: 6px; overflow: hidden; justify-content: center; align-items: center; gap: 4px; display: inline-flex">
-            <div style="text-align: center; color: rgba(26, 26, 26, 0.60); font-size: 10px; font-family: Poppins; font-weight: 500; line-height: 22px; word-wrap: break-word">Upload</div>
-          </div>
-        </div>
-        <div class="buttonprofile">
-          <p>Trung tâm trợ giúp</p>
-          <button type="button" class="cancelbtn" id="cancelbtn">Xóa</button>
-          <button type="button" class="donebtn" id="donebtn">Tạo</button>
+        <div style="display: flex;align-items: center;justify-content: center;">
+        <button type="button" class="importpicture"><img src="{% static 'icon/laptop.png' %}" alt="err" style="margin-right: 10px; "> <span >Tải lên máy tính</span></button>
+      </div>
+        <!--<p>Tải lên ảnh CCCD/ CMND</p>
+        <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
+        <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;position: relative;">
+          <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 150px; height: 150px;"></div>
+          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none;" id="clickload" onclick="load()" >chọn file</button> '
+          <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải file lên, hoặc '<button style="color: #4299e1;text-decoration: underline; border: none; cursor:pointer" id="clickload" onclick="load()"> chọn file</button> '
+          </header>
+          <span style="color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</span>
+          <input type="file" hidden name="" id="loadpicture">
         </div>
       </div>
-      
- 
-        <div class="infor">
-          <h5>Aenean sit amet magna vel magna fringilla fermentum. Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.</h5>
+      <div id="image-preview"></div>
+      <div id="image-details"></div>
+        <div style="width: 550px; height: 30px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
+          <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
+          <div style="color: #959DB2; font-size: 15px; font-family: Poppins; font-weight: 400; line-height: 11.52px; word-wrap: break-word">or</div>
+          <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
+        </div>
+        <p>Thêm đường dẫn</p>
+        <input style="margin-left:0px; width: 477px; height: 40px; position: relative; background: #F1F4F9; border-radius: 6px; overflow: hidden"type="text" placeholder="Nhập đường dẫn ..." id="image-url">
+        <button type="button" class="inportimagebtn" id="inportimagebtn" style="height: 40px;border-radius: 6px;" onclick="showImage()">Nhập ảnh</button>
+          
+        <div class="buttonprofile">
+          <p>Trung tâm trợ giúp</p>
+          <button type="button" class="cancelbtn" id="cancelbtn" onclick="deletebtn()">Xóa</button>
+          <button type="button" class="donebtn" id="donebtn" ><a href="#infor" style="text-decoration: none; color: #00BCD4;">Tạo</a></button>
+        </div>-->
+      </div>
+      <div class="imageupload" id="imageupload">
+        imgage upload
+      </div>
+
+        <div class="infor" id="infor">
+          <h5>Điền đầy đủ các thông tin sau đây: </h5>
           <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
           <input type="text" class="email" id="email" name="email" placeholder="Email ..."><p></p>
           <input type="text" class="numberphone" id="numberphone" name="numberphone" placeholder="Số điện thoại ...">
@@ -64,12 +72,12 @@
           <textarea type="text" class="message"id="message" name="message" placeholder="Ghi chú ..."></textarea><p></p>
           <div class="checkbox">
             <input type="checkbox" class="privacy" id="privacy" name="privacy"><span>Tôi đã đọc và chấp nhận 
-              Điều khoản dịch vụ & Chính sách quyền riêng tư</span>
-              <button type="createbtn" class="createbtn" id="createbtn">Tạo 
-              <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px">
-            </button>
+              <a style="color: #4299e1; text-decoration: underline">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span>
+              <button type="createbtn" class="createbtn" id="createbtn" >
+                Tạo 
+                <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px" style="position: relative;top: 3px;left: 7px;">
+              </button>
           </div>
-          
         </div>
     </div>
     {% include 'footer.html' %}

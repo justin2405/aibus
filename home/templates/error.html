@@ -10,6 +10,20 @@
 <body>
     {% include 'header.html' %}
     
+    <div class="error">
+        <div class="left">
+            <div class="div404"><div>404</div></div>
+        </div>
+        
+        <div class="right">
+            <div style="width: 2px; height: 200px;background-color: rgb(203, 203, 203); margin-right: 10%;"></div>
+            <div style="flex-direction: column;display: flex;align-items: center;justify-content: center;">
+                <h1>This page could not be found</h1>
+                <div style="margin-bottom: 70px;">You can either stay and chill here, or go back to the beginning.</div>
+                <button type="button" id="backtohome" class="backtohome" onclick="backtohome();">BACK TO HOME</button>
+            </div>
+        </div>
+    </div>
     {% include 'footer.html' %}
     
 </body>
