@@ -199,92 +199,99 @@ function showImage() {
 }*/
 function load() {
   input.click();
-  input.handleFile();
-    
-    
-
-
+ 
 }
-
-function handleFile() {
+function onchangepic() {
+  /*console.log("hi");*/
   
-  for (var i = 0; i < files.length; i++) {
-      handleFileInputChange(files[i]);
-  }
-}
+  /*
+  if (input.files && input.files.length > 0) {
+    const file = input.files[0];
+    console.log(file);
+} else {
+    console.error("Không có tệp nào được chọn.");
+}*/
 
-function handleFileInputChange(file) {
   var preview = document.getElementById('image-preview');
   var details = document.getElementById('image-details');
 
-  var image = document.createElement('img');
-  var previewContainer = document.createElement('div');
-  var detailsContainer = document.createElement('div');
-  var progressContainer = document.createElement('div');
-  var progress = document.createElement('div');
-  var progressBar = document.createElement('div');
-  var progressLabel = document.createElement('div');
-  var loaded = 0;
+  var files = input.files;
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var image = document.createElement('img');
+    var previewContainer = document.createElement('div');
+    var detailsContainer = document.createElement('div');
+    var progressContainer = document.createElement('div');
+    var progress = document.createElement('div');
+    var progressBar = document.createElement('div');
+    var progressLabel = document.createElement('div');
+    var loaded = 0;
 
-  image.classList.add('preview-image');
-  previewContainer.classList.add('preview-container');
-  detailsContainer.classList.add('preview-details');
-  progressContainer.classList.add('progress-container');
-  progress.classList.add('progress');
-  progressBar.classList.add('progress-bar');
-  progressLabel.classList.add('progress-label');
+    image.classList.add('preview-image');
+    previewContainer.classList.add('preview-container');
+    detailsContainer.classList.add('preview-details');
+    progressContainer.classList.add('progress-container');
+    progress.classList.add('progress');
+    progressBar.classList.add('progress-bar');
+    progressLabel.classList.add('progress-label');
 
-  preview.appendChild(previewContainer);
-  previewContainer.appendChild(image);
-  previewContainer.appendChild(detailsContainer);
-  detailsContainer.appendChild(progressContainer);
-  progressContainer.appendChild(progress);
-  progressContainer.appendChild(progressLabel);
-  progress.appendChild(progressBar);
+    preview.appendChild(previewContainer);
+    previewContainer.appendChild(image);
+    previewContainer.appendChild(detailsContainer);
+    detailsContainer.appendChild(progressContainer);
+    progressContainer.appendChild(progress);
+    progressContainer.appendChild(progressLabel);
+    progress.appendChild(progressBar);
 
-  var reader = new FileReader();
+    var reader = new FileReader();
 
-  reader.onloadstart = function() {
+    reader.onloadstart = function() {
       var interval = setInterval(function() {
-          progressLabel.innerText = Math.round(loaded) + '%';
-          progressBar.style.width = Math.round(loaded) + '%';
-          progressLabel.style.right = (100 - Math.round(loaded)) + '%';
+        progressLabel.innerText = Math.round(loaded) + '%';
+        progressBar.style.width = Math.round(loaded) + '%';
+        progressLabel.style.right = (100 - Math.round(loaded)) + '%';
 
-          if (loaded === 100) {
-              clearInterval(interval);
-          }
+        if (loaded === 100) {
+          clearInterval(interval);
+        }
       }, 50);
 
       var step = 100 / (file.size / 1024);
       var updateProgress = function() {
-          loaded += step;
-          if (loaded > 100) {
-              loaded = 100;
-          }
+        loaded += step;
+        if (loaded > 100) {
+          loaded = 100;
+        }
       };
 
       var updateInterval = setInterval(function() {
-          updateProgress();
-          if (loaded === 100) {
-              clearInterval(updateInterval);
-          }
+        updateProgress();
+        if (loaded === 100) {
+          clearInterval(updateInterval);
+        }
       }, 100);
-  };
+    };
 
-  reader.onload = function(e) {
+    reader.onload = function(e) {
       image.src = e.target.result;
-  };
+    };
 
-  reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
 
-  var imageName = document.createElement('p');
-  imageName.textContent = 'Tên: ' + file.name;
+    var imageName = document.createElement('p');
+    imageName.textContent = 'Tên: ' + file.name;
 
-  var imageSize = document.createElement('p');
-  imageSize.textContent = 'Dung lượng: ' + (file.size / 1024).toFixed(2) + ' KB';
+    var imageSize = document.createElement('p');
+    imageSize.textContent = 'Dung lượng: ' + (file.size / 1024).toFixed(2) + ' KB';
 
-  detailsContainer.appendChild(imageName);
-  detailsContainer.appendChild(imageSize);
+    detailsContainer.appendChild(imageName);
+    detailsContainer.appendChild(imageSize);
+  }
+
+
+  
+  
+  
 }
 
 // scroll top

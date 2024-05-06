@@ -598,11 +598,11 @@ background-color: #2196F3;
   flex-flow: row wrap;
 }
 .footer h1{
-  font-size: 25px;
+  font-size: 18px;
 }
 .footer h3{
   margin: 5px 0 7px 0;
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 500;
 }
 .footer .col01{
@@ -628,8 +628,8 @@ background-color: #2196F3;
 }
 .col05 img{
   margin-right: 15px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .col01 img{
   margin-top: -48px;
@@ -639,6 +639,7 @@ background-color: #2196F3;
   clip-path: inset(47px 0px 57px 0px);
 }
 .col01 div{
+  font-size: 12px;
   margin-bottom: 20px;
   top: -31px;
   position: relative;
@@ -843,7 +844,7 @@ background-color: #2196F3;
 .formimportpicture p{
   position: relative;
   top: 10px;
-  font-size: 20px;
+  font-size: 15px;
   left: -190px
 }
 .uploadpicture{
@@ -1105,12 +1106,17 @@ background-color: #2196F3;
 }
 
 #image-preview img {
-  max-width: 100px;
+  max-width: 80px;
   margin-bottom: 10px;
+  
+}
+#image-preview {
+  margin-left: 10%;
+  
 }
 
 .progress {
-  width: 200px;
+  width: 300px;
   height: 10px;
   background-color: #ddd;
 }
@@ -1121,6 +1127,7 @@ background-color: #2196F3;
 }
 .preview-image {
   margin-bottom: 20px;
+  
 }
 .preview-container {
   display: flex;

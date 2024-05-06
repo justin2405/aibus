@@ -20,7 +20,7 @@
             <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;">Kéo thả để tải lên
             </header>
             <span style="color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</span>
-            <input type="file" hidden name="" id="loadpicture">
+            <input type="file" hidden name="" id="loadpicture" onchange="onchangepic()">
           </div>
         </div>
         <div style="width: 550px; height: 30px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
@@ -29,8 +29,10 @@
           <div style="flex: 1 1 0; height: 0px; border: 1px #E8EBF2 solid"></div>
         </div>
         <div style="display: flex;align-items: center;justify-content: center;">
-        <button type="button" class="importpicture"><img src="{% static 'icon/laptop.png' %}" alt="err" style="margin-right: 10px; "> <span >Tải lên máy tính</span></button>
+        <button type="button" class="importpicture" id="clickload" onclick="load()" ><img src="{% static 'icon/laptop.png' %}" alt="err" style="margin-right: 10px; "> <span >Tải lên máy tính</span></button>
       </div>
+      <div id="image-preview"></div>
+      <div id="image-details"></div>
         <!--<p>Tải lên ảnh CCCD/ CMND</p>
         <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
         <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;position: relative;">
@@ -58,8 +60,8 @@
           <button type="button" class="donebtn" id="donebtn" ><a href="#infor" style="text-decoration: none; color: #00BCD4;">Tạo</a></button>
         </div>-->
       </div>
-      <div class="imageupload" id="imageupload">
-        imgage upload
+      <div class="imageupload"  id="dropArea">
+        
       </div>
 
         <div class="infor" id="infor">
