@@ -38,3 +38,6 @@ def Success(request):
 def Error(request):
     context = {}
     return render(request, "error.html", context)
+def Recruitment(request):
+    context = {}
+    return render(request, "recruitment.html", context)
