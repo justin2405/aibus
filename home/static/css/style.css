@@ -15,7 +15,7 @@ body {
   
 }
 .header {
-  display: revert;
+  display: flex;
   overflow: hidden;
   padding: 20px 10px;
 }
@@ -54,7 +54,7 @@ body {
 .header a {
   float: left;
   color: black;
-
+  
   padding: 18px;
   text-decoration: none;
   font-size: 18px; 
@@ -72,15 +72,15 @@ body {
   
 }
 
-.header :not(.logo) a:hover  {
+.header a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* .header a.active {
+.header a.active {
   background-color: dodgerblue;
   color: white;
-} */
+}
 
 .topnav {
   float: right;
@@ -597,17 +597,18 @@ background-color: #2196F3;
   justify-content: space-between;
   flex-flow: row wrap;
 }
- .footer h1{
-  font-size: 25px;
+.footer h1{
+  font-size: 18px;
 }
 .footer h3{
   margin: 5px 0 7px 0;
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 500;
 }
-/* .footer .col01{
-  background-color: #00BCD4;
-} */
+.footer .col01{
+  /* background-color: #00BCD4; */
+  
+}
 .footer .col{
   flex: 1 0;
   margin-left: 1rem;
@@ -627,8 +628,8 @@ background-color: #2196F3;
 }
 .col05 img{
   margin-right: 15px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .col01 img{
   margin-top: -48px;
@@ -638,6 +639,7 @@ background-color: #2196F3;
   clip-path: inset(47px 0px 57px 0px);
 }
 .col01 div{
+  font-size: 12px;
   margin-bottom: 20px;
   top: -31px;
   position: relative;
@@ -842,7 +844,7 @@ background-color: #2196F3;
 .formimportpicture p{
   position: relative;
   top: 10px;
-  font-size: 20px;
+  font-size: 15px;
   left: -190px
 }
 .uploadpicture{
@@ -1034,7 +1036,6 @@ background-color: #2196F3;
 #load{
   color: #05477b;
 }
-
 .error{
   text-align: center;
   width: 100%;
@@ -1105,12 +1106,17 @@ background-color: #2196F3;
 }
 
 #image-preview img {
-  max-width: 100px;
+  max-width: 80px;
   margin-bottom: 10px;
+  
+}
+#image-preview {
+  margin-left: 10%;
+  
 }
 
 .progress {
-  width: 200px;
+  width: 300px;
   height: 10px;
   background-color: #ddd;
 }
@@ -1121,6 +1127,7 @@ background-color: #2196F3;
 }
 .preview-image {
   margin-bottom: 20px;
+  
 }
 .preview-container {
   display: flex;
@@ -1173,23 +1180,4 @@ background-color: #2196F3;
   
   border: #36a5ff 2px solid;
   box-shadow: 5px 7px 5px rgba(107, 189, 255, 0.3);
-  
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 24px;
-  border: none;
-  outline: none;
-  background-color: #2196F3;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 30px;
-}
-
-#myBtn:hover {
-  background-color: #7b7b7b;
 }
