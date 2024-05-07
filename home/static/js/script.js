@@ -1,6 +1,10 @@
+
 const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
+var checkboxContainer = document.getElementById('checkbox-container');
+
+
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -12,6 +16,26 @@ function myFunction() {
     }
   }
   
+  // scroll top
+
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
 // crate profile
 document.getElementById('createprofile').addEventListener('click', function() {
     window.location.href = "createprofile"; 
@@ -30,6 +54,14 @@ document.getElementById('homebtn').addEventListener('click', function() {
 // upload ảnh
 function allowDrop(event) {
   event.preventDefault();
+  var dragText = document.getElementById('dragText');
+  dragText.textContent = ' Thả ảnh tại đây';
+  
+}
+function dragLeave(event) {
+  event.preventDefault();
+  var dragText = document.getElementById('dragText');
+  dragText.textContent = ' Kéo thả để tải lên';
   
 }
 function drop(event) {
@@ -200,21 +232,27 @@ function onchangepic() {
   
   
 }
+function next(){
+  var imageContainer = document.getElementById('image-preview');
+  var infoForm = document.getElementById('selectprofiletype');
+  var message = document.getElementById('message');
 
-// scroll top
-
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+  if (imageContainer.innerHTML.trim() === '') {
+    message.style.display = 'block';
+    infoForm.style.display = 'none';
   } else {
-    mybutton.style.display = "none";
+    
+    message.style.display = 'none';
+    infoForm.style.display = 'block';
   }
 }
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+var checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(function(checkbox) {
+  /*checkbox.addEventListener('change', function() {
+    checkboxes.forEach(function(cb) {
+      if (cb !== checkbox) {
+        cb.checked = false;
+      }
+    });
+  });*/
+});
