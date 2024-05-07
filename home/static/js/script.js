@@ -246,7 +246,6 @@ function next(){
     infoForm.style.display = 'block';
   }
 }
-
 var checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
 checkboxes.forEach(function(checkbox) {
   /*checkbox.addEventListener('change', function() {
@@ -257,4 +256,3 @@ checkboxes.forEach(function(checkbox) {
     });
   });*/
 });
-
