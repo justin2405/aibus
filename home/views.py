@@ -1,8 +1,14 @@
+from atexit import register
+from xml.dom.minidom import Document
 from django.shortcuts import render, HttpResponse
 from django.template import *
 from .templates import *
-import pytesseract  # type: ignore
 from PIL import Image
+import sys
+
+sys.path.append("/Users/mac/aibus/lib/python3.10/site-packages")
+import docx
+import pytesseract
 
 
 def Home(request):
@@ -38,6 +44,17 @@ def Success(request):
 def Error(request):
     context = {}
     return render(request, "error.html", context)
+
+
 def Recruitment(request):
     context = {}
     return render(request, "recruitment.html", context)
+
+
+@register
+def convert_doc(request):
+    document = docx.Document("home/test.docx")
+    for para in document.paragraphs:
+        print(para.text)
+    # document.save("test.docx")
+    return document

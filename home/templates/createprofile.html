@@ -76,8 +76,9 @@
           <textarea type="text" class="message"id="message" name="message" placeholder="Ghi chú ..."></textarea><p></p>
           <div class="checkbox">
             <input type="checkbox" class="privacy" id="privacy" name="privacy"><span>Tôi đã đọc và chấp nhận 
-              <a style="color: #4299e1; text-decoration: underline" href="#">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span>
-              <button type="createbtn" class="createbtn" id="createbtn" >
+              
+              <a style="color: #4299e1; text-decoration: underline">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span>
+              <button type="createbtn" class="createbtn" id="createbtn" href="{% url 'convert_doc' %}" >
                 Tạo 
                 <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px" style="position: relative;top: 3px;left: 7px;">
               </button>
@@ -85,7 +86,5 @@
         </div>
     </div>
     {% include 'footer.html' %}
-    
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

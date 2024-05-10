@@ -15,26 +15,6 @@ function myFunction() {
     }
   }
   
-  // scroll top
-
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-
 // crate profile
 document.getElementById('createprofile').addEventListener('click', function() {
     window.location.href = "createprofile"; 
@@ -253,24 +233,21 @@ function onchangepic() {
   }
 
 }
-function next(){
-  var imageContainer = document.getElementById('image-preview');
-  var infoForm = document.getElementById('selectprofiletype');
-  var message = document.getElementById('message');
 
-  if (imageContainer.innerHTML.trim() === '') {
-    message.style.display = 'block';
-    infoForm.style.display = 'none';
+// scroll top
+
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
   } else {
-    
-    message.style.display = 'none';
-    infoForm.style.display = 'block';
+    mybutton.style.display = "none";
   }
 }
 
-
-
-function nextoption() {
+  function nextoption() {
   var radios = document.querySelectorAll('input[type="radio"]:checked');
   var message = document.getElementById('messageoption');
   
@@ -296,4 +273,8 @@ function confirmButton() {
 function cancelButton() {
   document.getElementById("myModal").style.display = "none";
 
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
