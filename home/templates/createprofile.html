@@ -13,7 +13,7 @@
     
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
-      <div class="formimportpicture">
+      <div class="formimportpicture" id="formimportpicture">
         <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
           <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="dragLeave(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;/*border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;*/position: relative;">
             <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 180px; height: 180px;"></div>
@@ -31,6 +31,7 @@
         <div style="display: flex;align-items: center;justify-content: center;">
         <button type="button" class="importpicture" id="clickload" onclick="load()" ><img src="{% static 'icon/laptop.png' %}" alt="err" style="margin-right: 10px; "> <span >Tải lên máy tính</span></button>
       </div>
+      <p></p>
       <div id="image-preview"></div>
       <div id="image-details"></div>
         <button class="createbtn" id="donebtn" onclick="next()">Tiếp theo</button> 
@@ -43,17 +44,30 @@
       <div class="selectprofiletype" id="selectprofiletype" >
         <h1> Chọn loại hồ sơ</h1>
         <div id="checkbox-container" class="checkbox-container" style="text-align: left;margin-left: 10%;margin-bottom: 20px;">
-          <input type="checkbox" id="checkbox1" name="checkbox" value="option1"> Thành lập mới<br>
-          <input type="checkbox" id="checkbox2" name="checkbox" value="option2"> Đăng ký thay đổi<br>
-          <input type="checkbox" id="checkbox3" name="checkbox" value="option3"> Thông báo thay đổi<br>
-          <input type="checkbox" id="checkbox1" name="checkbox" value="option4"> Tạm ngừng kinh doanh - tiếp tục kinh doanh trước thời hạn<br>
-          <input type="checkbox" id="checkbox2" name="checkbox" value="option5"> Giải thể danh nghiệp<br>
-          <input type="checkbox" id="checkbox3" name="checkbox" value="option6"> Trường hợp khác<br>
+          <input type="radio" id="checkbox1" name="checkbox" value="option1"> Thành lập mới<br>
+          <input type="radio" id="checkbox2" name="checkbox" value="option2"> Đăng ký thay đổi<br>
+          <input type="radio" id="checkbox3" name="checkbox" value="option3"> Thông báo thay đổi<br>
+          <input type="radio" id="checkbox1" name="checkbox" value="option4"> Tạm ngừng kinh doanh<br>
+          <input type="radio" id="checkbox2" name="checkbox" value="option5"> Tiếp tục kinh doanh trước thời hạn<br>
+          <input type="radio" id="checkbox2" name="checkbox" value="option6"> Giải thể danh nghiệp<br>
+          <input type="radio" id="checkbox3" name="checkbox" value="option7"> Trường hợp khác<br>
         </div>
+        <div id="image-details"></div>
+        <button class="createbtn" id="nextoptionbtn" onclick="nextoption()">Tiếp theo</button> 
+        <p style="color: red; display: none;" id="messageoption">* Chưa chọn loại hồ sơ</p>
       </div>
-      
+      </div>
 
-        <div class="infor" id="infor" hidden>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>Nhắc nhở</h2>
+            <p>Nếu bạn nhấn tiếp tục sẽ không quay lại được. Bạn có muốn tiếp tục không ?</p>
+            <button id="confirmButton" onclick="confirmButton()">Tiếp tục</button>
+            <button id="cancelButton" onclick="cancelButton()">Quay lại</button>
+        </div>
+    </div>
+
+        <div class="infor" id="infor" hidden style="text-align: center;">
           <h5 >Điền đầy đủ các thông tin sau đây: </h5>
           <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
           <input type="text" class="email" id="email" name="email" placeholder="Email ..."><p></p>
@@ -62,6 +76,7 @@
           <textarea type="text" class="message"id="message" name="message" placeholder="Ghi chú ..."></textarea><p></p>
           <div class="checkbox">
             <input type="checkbox" class="privacy" id="privacy" name="privacy"><span>Tôi đã đọc và chấp nhận 
+              
               <a style="color: #4299e1; text-decoration: underline">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span>
               <button type="createbtn" class="createbtn" id="createbtn" href="{% url 'convert_doc' %}" >
                 Tạo 

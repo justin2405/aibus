@@ -2,7 +2,6 @@
 const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
-var checkboxContainer = document.getElementById('checkbox-container');
 
 
 function myFunction() {
@@ -125,14 +124,21 @@ function drop(event) {
   
 }
 function load() {
+  
+  var imagesCount = document.getElementById('image-preview').querySelectorAll('img').length;
+  if (imagesCount >= 2) {
+    alert('Chỉ được thêm tối đa 2 ảnh.');
+    return;
+  }
   input.click();
- 
+
 }
 function onchangepic() {
   
 
   var preview = document.getElementById('image-preview');
   var details = document.getElementById('image-details');
+  var addButton = document.getElementById('add-button');
 
   var files = input.files;
   for (var i = 0; i < files.length; i++) {
@@ -144,7 +150,16 @@ function onchangepic() {
     var progress = document.createElement('div');
     var progressBar = document.createElement('div');
     var progressLabel = document.createElement('div');
+    var deleteButton = document.createElement('button');
     var loaded = 0;
+
+    deleteButton.style.borderRadius = '5px'; // Góc bo tròn 5px
+    deleteButton.style.border = '2px solid red'; // Viền màu đỏ
+    deleteButton.style.backgroundColor = 'white'; // Nền màu trắng
+    deleteButton.style.color = 'red';
+    deleteButton.style.zIndex = '10';
+    deleteButton.style.position= 'absolute';
+    
 
     image.classList.add('preview-image');
     previewContainer.classList.add('preview-container');
@@ -153,6 +168,7 @@ function onchangepic() {
     progress.classList.add('progress');
     progressBar.classList.add('progress-bar');
     progressLabel.classList.add('progress-label');
+    
 
     preview.appendChild(previewContainer);
     previewContainer.appendChild(image);
@@ -161,6 +177,11 @@ function onchangepic() {
     progressContainer.appendChild(progress);
     progressContainer.appendChild(progressLabel);
     progress.appendChild(progressBar);
+
+    deleteButton.textContent = 'Xóa';
+      deleteButton.addEventListener('click', function() {
+        previewContainer.remove();
+      });
 
     var reader = new FileReader();
 
@@ -172,10 +193,13 @@ function onchangepic() {
 
         if (loaded === 100) {
           clearInterval(interval);
+          progressContainer.style.display = 'none';
+          progressBar.style.display = 'none';
+          progressLabel.style.display = 'none';
         }
       }, 50);
 
-      var step = 100 / (file.size / 1024);
+      var step = 100 / (5000 / 1024);
       var updateProgress = function() {
         loaded += step;
         if (loaded > 100) {
@@ -198,19 +222,16 @@ function onchangepic() {
     reader.readAsDataURL(file);
 
     var imageName = document.createElement('p');
-    imageName.textContent = 'Tên: ' + file.name;
+    imageName.textContent = 'Tên: '+file.name;
 
     var imageSize = document.createElement('p');
     imageSize.textContent = 'Dung lượng: ' + (file.size / 1024).toFixed(2) + ' KB';
-
+    
     detailsContainer.appendChild(imageName);
+    detailsContainer.appendChild(deleteButton);
     detailsContainer.appendChild(imageSize);
   }
 
-
-  
-  
-  
 }
 
 // scroll top
@@ -226,6 +247,33 @@ function scrollFunction() {
   }
 }
 
+  function nextoption() {
+  var radios = document.querySelectorAll('input[type="radio"]:checked');
+  var message = document.getElementById('messageoption');
+  
+  if (radios.length === 0) {
+    message.style.display = 'block';
+  } else {
+    document.getElementById("myModal").style.display = "flex";
+    message.style.display = 'none';
+  }
+}
+function confirmButton() {
+  var radioForm = document.getElementById('formimportpicture');
+  var imgForm = document.getElementById('selectprofiletype');
+  var infor = document.getElementById('infor');
+  radioForm.style.display = 'none';
+  imgForm.style.display = 'none';
+  infor.style.display = 'block';
+  document.getElementById("myModal").style.display = "none";
+
+  /*window.location.href = "https://www.google.com";*/
+}
+
+function cancelButton() {
+  document.getElementById("myModal").style.display = "none";
+
+}
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;

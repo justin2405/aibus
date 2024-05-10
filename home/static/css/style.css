@@ -16,7 +16,7 @@ body {
 }
 .header {
   display: flex;
-  overflow: hidden;
+
   padding: 20px 10px;
 }
 .topnav .icon {
@@ -78,11 +78,60 @@ body {
   color: black;
 }
 
+.menu-item {
+  position: relative;
+  display: inline-block; /* để menu cấp 1 hiển thị cạnh nhau */
+  margin-right: 20px;
+}
+
+.menu-item a {
+  width: 100%;
+  text-decoration: none;
+  color: #333;
+}
+
+.submenu {
+  width: 250px;
+  z-index: 100;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 13px -3px rgb(132, 177, 255);
+
+}
+.submenu a{
+  padding: 5px;
+}
+.submenu-level3 {
+  width: 250px;
+  z-index: 100;
+  display: none;
+  position: absolute;
+  
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 13px -3px rgb(132, 177, 255);
+  top: 0%;
+  left: 100%;
+}
+
+.submenu-item:hover .submenu-level3 {
+  display: block;
+}
+
+
+.menu-item:hover .submenu{
+  display: block;
+}
 
 
 .topnav {
   float: right;
-  overflow: hidden;
+  
+
 }
 .header-right #toggle{
   display: none;
@@ -111,10 +160,11 @@ body {
   height: 20%;
 }
 .banner{
-  display: contents;
+  background-color:rgba(72, 172, 255, 0.2);
+  width: 100%;
   top: 138px;
   position: absolute;
-  margin-left: 32px;
+  margin-left: 0px;
   text-align: center;
 }
 .banner .title{
@@ -122,6 +172,8 @@ body {
 
 }
 .banner .describe{
+  
+  text-align: center;
   width: 100%;
   color: rgb(107, 107, 107);
 }
@@ -165,7 +217,7 @@ body {
 .about{
   height: 20%;
   /* height: 1000px; */
-  margin-top: 130px;
+  margin-top: 370px;
   margin-left: 32px;
   display: flex;
   /* align-items: center; */
@@ -840,10 +892,9 @@ background-color: #2196F3;
   box-shadow: 0 0 25px -4px rgb(132, 177, 255);
 }
 .formimportpicture p{
-  position: relative;
-  top: 10px;
+  text-align: left;
   font-size: 15px;
-  left: -190px
+  
 }
 .uploadpicture{
   
@@ -1101,7 +1152,7 @@ background-color: #2196F3;
 }
 
 #image-preview img {
-  max-width: 80px;
+  max-width: 100px;
   margin-bottom: 10px;
   
 }
@@ -1190,7 +1241,7 @@ background-color: #2196F3;
 }
 
 .selectprofiletype{
-  /*display: none;*/
+  display: none;
   margin-top: 50px;
   border: 1px solid #ffffff;
   border-radius: 10px;
@@ -1225,4 +1276,39 @@ background-color: #2196F3;
 }
 .checkbox-container input[type="checkbox"]:checked {
   background-color: #6bbdff; /* Màu xanh dương */
+}
+
+.modal {
+  display: none; /* Ẩn modal mặc định */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ trong suốt */
+}
+
+.modal-content {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.modal-content button{
+  color: #00BCD4;
+  font-size: 20px;
+  margin: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border: 2px solid #00BCD4;
+  border-radius: 10px;
+  background-color: #fff;
+  
+}
+.modal-content button:not(#cancelButton){
+  box-shadow: inset 400px 0 0 0 #def3f6;
+  
 }
