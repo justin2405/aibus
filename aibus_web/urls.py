@@ -11,4 +11,5 @@ urlpatterns = [
     path("error/", Error, name="error"),
     path("recruitment/", Recruitment, name="recruitment"),
     path("convert/", convert_doc, name="convert"),
+    path("process_image/", process_image, name="process_image"),
 ]

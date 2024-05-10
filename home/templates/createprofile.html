@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
-    
+    <!-- <meta name="csrf-token" content="{{ csrf_token }}" /> -->
 
 </head>
 <body>
@@ -13,14 +13,16 @@
     
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
-      <div class="formimportpicture" id="formimportpicture">
+      <div class="formimportpicture">
+        {% csrf_token %}
+        <h3>Tải lên ảnh CCCD</h3>
         <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
           <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="dragLeave(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;/*border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;*/position: relative;">
             <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 180px; height: 180px;"></div>
             <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;" id="dragText">Kéo thả để tải lên
             </header>
             <span style="color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</span>
-            <input type="file" hidden name="" id="loadpicture" onchange="onchangepic()">
+            <input type="file" hidden name="" id="loadpicture" onchange="onchangepic()" accept="image/*">
           </div>
         </div>
         <div style="width: 550px; height: 30px; justify-content: flex-start; align-items: center; gap: 7px; display: inline-flex">
@@ -34,7 +36,7 @@
       <p></p>
       <div id="image-preview"></div>
       <div id="image-details"></div>
-        <button class="createbtn" id="donebtn" onclick="next()">Tiếp theo</button> 
+        <button class="createbtn" id="donebtn" onclick="next()"><a >Tiếp theo</a></button> 
         <p style="color: red; display: none;" id="message">* Chưa tải bất kỳ hình ảnh nào</p>
       </div>
       
@@ -51,6 +53,7 @@
           <input type="radio" id="checkbox2" name="checkbox" value="option5"> Tiếp tục kinh doanh trước thời hạn<br>
           <input type="radio" id="checkbox2" name="checkbox" value="option6"> Giải thể danh nghiệp<br>
           <input type="radio" id="checkbox3" name="checkbox" value="option7"> Trường hợp khác<br>
+          <button class="createbtn" id="submitBtn" onclick="first_select()" ><a >Tiếp theo</a></button>
         </div>
         <div id="image-details"></div>
         <button class="createbtn" id="nextoptionbtn" onclick="nextoption()">Tiếp theo</button> 
@@ -68,6 +71,8 @@
     </div>
 
         <div class="infor" id="infor" hidden style="text-align: center;">
+      
+        <div class="infor" id="infor" hidden>
           <h5 >Điền đầy đủ các thông tin sau đây: </h5>
           <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
           <input type="text" class="email" id="email" name="email" placeholder="Email ..."><p></p>
@@ -78,7 +83,7 @@
             <input type="checkbox" class="privacy" id="privacy" name="privacy"><span>Tôi đã đọc và chấp nhận 
               
               <a style="color: #4299e1; text-decoration: underline">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span>
-              <button type="createbtn" class="createbtn" id="createbtn" href="{% url 'convert_doc' %}" >
+              <button type="createbtn" class="createbtn" id="createbtn" href="" >
                 Tạo 
                 <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px" style="position: relative;top: 3px;left: 7px;">
               </button>

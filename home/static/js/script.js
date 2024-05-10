@@ -1,4 +1,3 @@
-
 const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
@@ -10,10 +9,27 @@ function myFunction() {
       x.className += " responsive";
       
     } else {
-      x.className = "topnav";
-      
+      x.className = "topnav"; 
     }
+}
+var image_1 = new Object();
+var image_2 = new Object()
+// scroll top
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
   }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
   
 // crate profile
 document.getElementById('createprofile').addEventListener('click', function() {
@@ -44,11 +60,9 @@ function dragLeave(event) {
   
 }
 function drop(event) {
-
   event.preventDefault();
   var preview = document.getElementById('image-preview');
   var details = document.getElementById('image-details');
-
   var files = event.dataTransfer.files;
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
@@ -133,9 +147,8 @@ function load() {
   input.click();
 
 }
-function onchangepic() {
-  
 
+function onchangepic() {
   var preview = document.getElementById('image-preview');
   var details = document.getElementById('image-details');
   var addButton = document.getElementById('add-button');
@@ -218,9 +231,12 @@ function onchangepic() {
     reader.onload = function(e) {
       image.src = e.target.result;
     };
-
     reader.readAsDataURL(file);
-
+    if (Object.keys(image_1).length === 0) {
+      $(image_1).prop('file', files);
+    } else {
+      $(image_2).prop('file', files);
+    }
     var imageName = document.createElement('p');
     imageName.textContent = 'Tên: '+file.name;
 
@@ -234,18 +250,52 @@ function onchangepic() {
 
 }
 
-// scroll top
-
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+function next(){
+  var imageContainer = document.getElementById('image-preview');
+  var infoForm = document.getElementById('selectprofiletype');
+  var message = document.getElementById('message');
+  if (imageContainer.innerHTML.trim() === '') {
+    message.style.display = 'block';
+    infoForm.style.display = 'none';
   } else {
-    mybutton.style.display = "none";
+    if (imageContainer.childElementCount == 1){
+      message.style.display = 'none';
+      infoForm.style.display = 'block';
+      $('[name=formimportpicture]').hide();
+      const formData = new FormData();
+      document.getElementById('selectprofiletype').scrollIntoView();
+      console.log(image_1.file);
+      formData.append('image_1', image_1.file[0]);
+      // formData.append('image_2', image_2.file[0]);
+      for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+      }
+      var object = {};
+      formData.forEach((value, key) => object[key] = value);
+      var json = JSON.stringify(object);
+      console.log(json);
+      $.ajax({
+        type: "POST",
+        url: "/process_image/",
+        headers: {
+        "X-CSRFToken": $('[name="csrfmiddlewaretoken"]').val(),
+        },
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false
+      }).done(function (o) {
+        console.log(o);
+      });
+    } else {
+      message.innerHTML = "*Số lượng ảnh tải lên vẫn chưa đủ (mặt trước và mặt sau CCCD)";
+      message.style.display = 'block';
+    }
   }
 }
+function first_select() {
+  let value = $("input[name='checkbox']:checked").val();
+  }
 
   function nextoption() {
   var radios = document.querySelectorAll('input[type="radio"]:checked');
@@ -273,8 +323,4 @@ function confirmButton() {
 function cancelButton() {
   document.getElementById("myModal").style.display = "none";
 
-}
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
 }

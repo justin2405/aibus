@@ -54,8 +54,7 @@ body {
 .header a {
   float: left;
   color: black;
-  
-  padding: 18px;
+  padding: 10px;
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
@@ -202,6 +201,7 @@ body {
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
+  cursor: pointer;
 }
 .createprofile button:hover{
   /*background-color: #e2fbff;*/
@@ -712,8 +712,8 @@ background-color: #2196F3;
   z-index: -1;
 }
 .vuong300{
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
   border-radius: 20px;
   transform: rotate(-45deg);
 }
@@ -894,7 +894,7 @@ background-color: #2196F3;
 .formimportpicture p{
   text-align: left;
   font-size: 15px;
-  
+  left: -18%;
 }
 .uploadpicture{
   
@@ -991,7 +991,6 @@ background-color: #2196F3;
   position: relative;
 }
 .checkbox .createbtn{
-  
   position: relative;
   left: 250px;
 }
@@ -1000,6 +999,7 @@ background-color: #2196F3;
   left: 70px;
 }
 .createbtn{
+  cursor: pointer;
   color: #00BCD4;
   font-size: 18px;
   margin: 40px;
@@ -1233,6 +1233,7 @@ background-color: #2196F3;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 } 
 .importpicture:hover{
   

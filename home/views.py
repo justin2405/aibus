@@ -1,14 +1,20 @@
 from atexit import register
+import json
 from xml.dom.minidom import Document
 from django.shortcuts import render, HttpResponse
 from django.template import *
 from .templates import *
 from PIL import Image
 import sys
+import numpy as np
+from io import BytesIO
+from flask import Flask, request
 
 sys.path.append("/Users/mac/aibus/lib/python3.10/site-packages")
 import docx
 import pytesseract
+import argparse
+import cv2
 
 
 def Home(request):
@@ -17,11 +23,22 @@ def Home(request):
 
 
 def process_image(request):
-    if request.method == "post":
-        image_file = request.FILES["image"]
-        image = Image.open(image_file)
-        text = pytesseract.image_to_string(image)
-        return render(request, "ocr/result.html", {"text": text})
+    content_list = {}
+    if request.method == "POST":
+        print(request.FILES["image_1"].name)
+        img_cv = cv2.imread(request.FILES["image_1"].name)
+        # d = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
+        gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
+        threshold_img = cv2.threshold(
+            gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU
+        )[1]
+        image_file = request.FILES["image_1"]
+        image = Image.open(threshold_img)
+        text = pytesseract.image_to_string(
+            image, lang="vie"
+        )  # , config=r"--oem 2 --psm 7"
+        print(text)
+        return HttpResponse(text)
     else:
         return HttpResponse("Method not allowed")
 
