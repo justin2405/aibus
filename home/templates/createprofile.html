@@ -16,12 +16,13 @@
       <div class="formimportpicture">
         {% csrf_token %}
         <h3>Tải lên ảnh CCCD</h3>
-        <div style="display: flex;align-items: center;justify-content: center; width: 100%;cursor:pointer;">
-          <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="dragLeave(event)" style="overflow: hidden;text-align: center; width: 60%; height:250px;align-items: center;justify-content: center;/*border-style: dashed;border-width: 2px;border-radius: 0.75rem;padding: 1rem;*/position: relative;">
-            <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'icon/Picture.png' %}" alt="err" style="width: 180px; height: 180px;"></div>
-            <header style="font-size: 1.125rem; display: flex;justify-content: center; align-items: center;" id="dragText">Kéo thả để tải lên
-            </header>
-            <span style="color: #cbd5e0;font-size: 0.875rem;">Hỗ trợ: PNG, JPG, JPEG, WEBP</span>
+        <div style="display: grid;align-items: center;justify-content: center; width: 100%;position: relative;">
+          <div id="dropArea" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="dragLeave(event)" style="border-radius: 3.18mm;overflow: hidden;text-align: center;width: 85.6mm;height: 54.98mm;border: 3px dashed #000;align-items: center;justify-content: center;position: relative;cursor:pointer;">
+            <div style="display: flex;justify-content: center; align-items: center;"><img src="{% static 'img/cccd.png' %}" alt="err" style="width: 100%; height: 100%;" class="imgcccd">
+              <div style="font-size: 1.5rem; justify-content: center; align-items: center;transform: translate(0%, -50%);position: absolute;" id="dragText" hidden>Kéo thả để tải lên
+              </div>
+              <span style="color: #858585;font-size: 0.875rem;transform: translate(0%, 45%);position: absolute;" class="textcccd" hidden>Hỗ trợ: PNG, JPG, JPEG, WEBP</span></div>
+            
             <input type="file" hidden name="" id="loadpicture" onchange="onchangepic()" accept="image/*">
           </div>
         </div>
@@ -43,7 +44,7 @@
       <div class="imageupload"  id="dropArea">
       </div>
       
-      <div class="selectprofiletype" id="selectprofiletype" >
+      <div class="selectprofiletype" id="selectprofiletype">
         <h1> Chọn loại hồ sơ</h1>
         <div id="checkbox-container" class="checkbox-container" style="text-align: left;margin-left: 10%;margin-bottom: 20px;">
           <input type="radio" id="checkbox1" name="checkbox" value="option1"> Thành lập mới<br>

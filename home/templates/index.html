@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
-
+    
 </head>
 <body>
     <div class="background" hidden>
@@ -18,18 +18,18 @@
     {% include 'header.html' %}
     <div class="maincontent">
         <div class="banner">
-            <h1 class="title" style="font-size: 35px;">TẠO HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
+            <h1 class="title" style="font-size: 45px; font-weight:bold; color: rgb(4, 120, 214);">TẠO HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
             <h2 class="describe" style="font-size: 20px;">
                 <span >>>></span> Tạo nhanh hồ sơ đăng ký kinh doanh cho doanh nghiệp mới.<p></p>
                 <span style="margin-left: -70px;">>>></span>Tạo hồ sơ đăng ký thay đổi thông tin doanh nghiệp.</h2>
             <div class="createprofile">
                 <button type="button" class="createprofile" id="createprofile">
                     Tạo hồ sơ
-                    <img src="{% static 'icon/send.png' %}" alt="err">
+                    <img src="{% static 'icon/send-message.png' %}" alt="err">
                 </button>
                 <button type="button" class="editprofile" id="editprofile">
                     Sửa hồ sơ
-                    <img src="{% static 'icon/send.png' %}" alt="err">
+                    <img src="{% static 'icon/send-message.png' %}" alt="err">
                 </button>
             </div>
         </div>
@@ -76,42 +76,93 @@
                        Chúng tôi giúp khách hàng tiết kiệm thời gian và chi phí để làm hồ sơ đăng ký kinh doanh và thay đổi thông tin doanh nghiệp.</h2>
             </div>
         </div>
-        <div class="ourservices" id="services">
-            <h1 style="font-size: 45px;"> Dịch vụ của chúng tôi</h1>
-            <div class="services">
-                <div class="detail01">
-                    <img src="https://images.pexels.com/photos/5716031/pexels-photo-5716031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
-                    <h1>Tạo hồ sơ kinh doanh cho doanh nghiệp tư nhân</h1>
-                    
-                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
-                </div>
-                <!--
-                <div class="detail01">
-                    <img src="https://images.pexels.com/photos/443383/pexels-photo-443383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
-                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty hợp danh</h1>
-                    
-                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
-                </div>-->
-                <div class="detail01">
-                    <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
-                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
-                    
-                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
-                </div>
-                <div class="detail01">
-                    <img src="https://images.pexels.com/photos/188035/pexels-photo-188035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
-                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 2 thành viên trở lên</h1>
-                    
-                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
-                </div>
-                <div class="detail01">
-                    <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
-                    <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty cổ phần</h1>
-                    
-                    <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
-                </div>
-                
-            </div>
+        <div  id="services">
+            <h1 style="font-size: 45px;text-align: center; color: #2196F3;"> Dịch vụ của chúng tôi</h1>
+            
+                <div class="slideshow-container">
+                    <div class=" mySlider fade" style="display: none;">
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/188035/pexels-photo-188035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 2 TV trở lên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty cổ phần</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="mySlider fade "style="display: none;">
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/188035/pexels-photo-188035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 2 TV trở lên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty cổ phần</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="mySlider fade"style="display: none;">
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 1 thành viên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/188035/pexels-photo-188035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty TNHH 2 TV trở lên</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                        <div class="detail01">
+                            <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err">
+                            <h1>Tạo hồ sơ đăng ký kinh doanh cho công ty cổ phần</h1>
+                            
+                            <button type="button" class="seedetail" id="seedetail">Chi tiết</button>
+                        </div>
+                    </div>
+                    <a class="prev" onclick="plusSlider(-1)">❮</a>
+                    <a class="next" onclick="plusSlider(1)">❯</a>
+                  </div>
+                  
+            
         </div>
         <div class="ourexpertise" id="expertise">
             <div class="left">
@@ -120,7 +171,7 @@
                     <div class="rectangle02"></div>
                     <div class="rectangle03"></div>
                     <div class="rectangle04">
-                        <span class="textexper"> Kinh nghiệm <br>của chúng tôi</span>
+                        <span class="textexper">CHÍNH SÁCH</span>
                     </div>
                 </div>
                 <img src="{% static 'icon/camera.png' %}" alt="err" class="cameraicon">
@@ -133,7 +184,7 @@
             </div>
             <div class="right">
                 <div class="titlexper">
-                    Tạo bộ hồ sơ đăng ký online - Giải pháp tối ưu cho doanh nghiệp
+                    AN TOÀN - HIỆU QUẢ - TIẾT KIỆM - THÂN THIỆN
                 </div>
                 <div class="describe">
                     <ul style="font-size: 18px;">
@@ -145,72 +196,69 @@
                     </ul>
                     
                 </div>
-                <div class="tag">
-                    <div class="maketing">Bảo mật</div>
-                    <div class="seo">Nhanh chóng</div>
-                    <div class="socialmedia">Tự động</div>
-                    <div class="webdevelopment">Tiện lợi</div>
-                    <div class="uidesign">Linh hoạt</div>
-                    <div class="companyprofile">Chính xác</div>
-                    <div class="visualediting">Quy trình đơn giản</div>
-                    <div class="mobileapps">Tiết kiệm chi phí</div>
-                    <div class="photography">Chủ động thời gian</div>
-                    
-                </div>
+                
             </div>
         </div>
         <div class="casestudies" id="casestudy">
-            <div class="left">
-                <h1>Kiến thức</h1>
-                <div class="titlecare">
-                    <button type="button" class="corporate">Bài viết</button>
-                    <button type="button" class="advertising">Hướng dẫn tạo hồ sơ</button>
-                    <button type="button" class="maketing">Kiến thức pháp luật</button>
-                    <button type="button" class="govemment">Cập nhật quy định mới</button>
-                    <button type="button" class="creeative">Kiến thức kinh doanh</button>
-                </div>
-            </div>
-            <div class="right" >
-                <div class="row01" >
-                    <div class="case01" style="overflow: hidden;position: absolute;">
-                        <div style="align-items: center;display: flex;position: absolute;top: 80%;left: 10%;transform: translate(-10%, -16%);background-color: rgb(100, 100, 100,0.3);font-size: 17px;font-weight: 500;text-align: center;width: 100%;height: 20%;color: rgb(255, 255, 255);">
-                            Hướng dẫn tạo hồ sơ
+            
+            
+                    <!--<div class="case01" style="overflow: hidden;position: absolute;">
+                        <div class="container">
+                            <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                            <div class="overlay">
+                              <div class="text">Hello World</div>
+                            </div>
+                          </div>
+                    </div>-->
+                <div style="display: flex;flex-direction: column">
+                    <div class="container case01">
+                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                        <div class="overlay">
+                        <div class="text">Hello World</div>
                         </div>
-                        <img src="https://images.pexels.com/photos/669621/pexels-photo-669621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 100%;height: 100%;">
                     </div>
-                    <div class="case02" >
-                        <img src="{% static 'img/logo.png' %}" alt="err">
-                    </div>
-                </div>
-                <div class="row02">
-                    <div class="case03" style="display: flex;align-items: center;justify-content: center;color: aliceblue;font-size: 45px;font-weight: 600;">Kiến thức</div>
-                    <div class="case04" style="overflow: hidden;position: absolute;">
-                        <div style="align-items: center;display: flex;position: absolute;top: 80%;left: 10%;transform: translate(-10%, -16%);background-color: rgb(100, 100, 100,0.3);font-size: 17px;font-weight: 500;text-align: center;width: 100%;height: 20%;color: rgb(255, 255, 255);">
-                            Hướng dẫn tạo hồ sơ
-                        </div>
-                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 100%;height: 100%;">
-                    </div>
-                    <div class="case05" style="overflow: hidden;position: absolute;">
-                        <div style="align-items: center;display: flex;position: absolute;top: 80%;left: 10%;transform: translate(-10%, -16%);background-color: rgb(100, 100, 100,0.3);font-size: 17px;font-weight: 500;text-align: center;width: 100%;height: 20%;color: rgb(255, 255, 255);">
-                            Kiến thức pháp luật
-                        </div>
-                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 120%;height: 120%;">
+                    <div class="container case02">
+                        <img src="{% static 'img/Logo.png' %}" alt="Avatar" class="image">
+                        
                     </div>
                 </div>
-                <div class="row03">
-                    <div class="case06" style="overflow: hidden;position: absolute;">
-                        <div style="align-items: center;display: flex;position: absolute;top: 80%;left: 10%;transform: translate(-10%, -16%);background-color: rgb(100, 100, 100,0.3);font-size: 17px;font-weight: 500;text-align: center;width: 100%;height: 20%;color: rgb(255, 255, 255);">
-                            Cập nhật quy định mới
+                <div style="display: flex;flex-direction: column; margin-left: 20px;">
+                    <div class="container case03">
+                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                        <div class="overlay">
+                        <div class="text">Hello World</div>
                         </div>
-                        <img src="https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="err" style="object-fit: cover;width: 100%;height: 170%; margin-top: -90px;">
                     </div>
-                    <div class="case07" style="overflow: hidden;position: absolute;">
-                        <div style="align-items: center;display: flex;position: absolute;top: 80%;left: 10%;transform: translate(-10%, -16%);background-color: rgb(100, 100, 100,0.3);font-size: 17px;font-weight: 500;text-align: center;width: 100%;height: 20%;color: rgb(255, 255, 255);">
-                            Hướng dẫn taọ hồ sơ
+                    <div class="container case04" style="background-color:#2196F3;">
+                        
+                        <div class="text" style="font-size: 40px; font-weight: bold;top: 55%;">Hello World</div>
+                        
+                    </div>
+                    <div class="container case05">
+                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                        <div class="overlay">
+                        <div class="text">Hello World</div>
                         </div>
-                        <img src="https://media.istockphoto.com/id/1348546519/vi/anh/b%C3%A0n-tay-doanh-nh%C3%A2n-%C4%91ang-%E1%BB%9F-tr%C3%AAn-trackpad-g%C3%B5-tr%C3%AAn-b%C3%A0n-ph%C3%ADm-m%C3%A1y-t%C3%ADnh-x%C3%A1ch-tay-trong-khi-%C4%91%E1%BB%8Dc-t%C3%A0i.jpg?s=2048x2048&w=is&k=20&c=YoDxINESOzgISJ0zWTb2xpRDHvzbjFr60moy2HnRhnM=" alt="err" style="object-fit: cover;width: 120%;height: 120%;">
                     </div>
                 </div>
+                <div style="display: flex;flex-direction: column; margin-left: 20px;">
+                    <div class="container case06">
+                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                        <div class="overlay">
+                        <div class="text">Hello World</div>
+                        </div>
+                    </div>
+                    <div class="container case07">
+                        <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" class="image">
+                        <div class="overlay">
+                        <div class="text">Hello World</div>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+                
+                
             </div>
         </div>
     </div>
