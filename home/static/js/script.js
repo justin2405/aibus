@@ -1,6 +1,7 @@
 const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
+var isLoggedIn = false;
 setInterval(auto, 7000);
 
 function myFunction() {
@@ -47,6 +48,8 @@ showSlider(slideIndex);
 document.getElementById('homebtn').addEventListener('click', function() {
   window.location.href = "createprofile"; 
 });
+
+
 
 
 // upload ảnh
@@ -342,20 +345,23 @@ function first_select() {
   }
 }
 function confirmButton() {
+  
   var radioForm = document.getElementById('formimportpicture');
   var imgForm = document.getElementById('selectprofiletype');
   var infor = document.getElementById('infor');
-  radioForm.style.display = 'none';
-  imgForm.style.display = 'none';
-  infor.style.display = 'block';
+  
   document.getElementById("myModal").style.display = "none";
-
+  console.log('12');
+  
+  imgForm.style.display = 'none';
+  radioForm.style.display = 'none';
+  infor.style.display = 'block';
+  
   /*window.location.href = "https://www.google.com";*/
 }
 
 function cancelButton() {
   document.getElementById("myModal").style.display = "none";
-
 }
 
 
@@ -396,4 +402,43 @@ function auto() {
   
 }
 
-
+function userlogin() {
+  
+  var authDisplay = document.getElementById('authDisplay');
+  /*console.log(isLoggedIn);*/
+  
+  if (isLoggedIn) {
+    // Create user icon
+    var userIcon = document.createElement('a');
+      userIcon.className = 'user-icon';
+      userIcon.id = 'userIcon';
+      var img = document.createElement('img');
+      img.src = 'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg'; // Provide the path to your image here
+      img.alt = 'User Icon';
+      userIcon.appendChild(img);
+      userIcon.onclick = function() {
+        var form = document.getElementById('userForm');
+        if (form.style.display == 'none' ) {
+          form.style.display = 'block';
+        } else {
+          form.style.display = 'none';
+        }
+      };
+      authDisplay.appendChild(userIcon);
+  } else {
+    // Create login text
+    var loginButton = document.createElement('a');
+    loginButton.className = 'login-button';
+    loginButton.innerHTML = 'Đăng nhập';
+    loginButton.id = 'trigger-div';
+    loginButton.onclick = function() {
+      var form = document.getElementById('loginForm');
+      if (form.style.display == 'none' ) {
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    };
+    authDisplay.appendChild(loginButton);
+  }
+};
