@@ -13,7 +13,7 @@
     
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
-      <div class="formimportpicture">
+      <div class="formimportpicture" id="formimportpicture">
         {% csrf_token %}
         <h3>Tải lên ảnh CCCD</h3>
         <div style="display: grid;align-items: center;justify-content: center; width: 100%;position: relative;">
@@ -54,7 +54,7 @@
           <input type="radio" id="checkbox2" name="checkbox" value="option5"> Tiếp tục kinh doanh trước thời hạn<br>
           <input type="radio" id="checkbox2" name="checkbox" value="option6"> Giải thể danh nghiệp<br>
           <input type="radio" id="checkbox3" name="checkbox" value="option7"> Trường hợp khác<br>
-          <button class="createbtn" id="submitBtn" onclick="first_select()" ><a >Tiếp theo</a></button>
+          <!--<button class="createbtn" id="submitBtn" onclick="first_select()" ><a >Tiếp theo</a></button>-->
         </div>
         <div id="image-details"></div>
         <button class="createbtn" id="nextoptionbtn" onclick="nextoption()">Tiếp theo</button> 
@@ -71,9 +71,9 @@
         </div>
     </div>
 
-        <div class="infor" id="infor" hidden style="text-align: center;">
+        
       
-        <div class="infor" id="infor" hidden>
+        <div class="infor" id="infor" hidden style="text-align: center;">
           <h5 >Điền đầy đủ các thông tin sau đây: </h5>
           <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
           <input type="text" class="email" id="email" name="email" placeholder="Email ..."><p></p>
@@ -90,7 +90,7 @@
               </button>
           </div>
         </div>
-    </div>
+    
     {% include 'footer.html' %}
 </body>
 </html>

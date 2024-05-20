@@ -8,22 +8,11 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
-<body>
+<body onload="userlogin()" onclick="hideLoginForm()">
 <div class="header" >
   <a class="logo" href="/"><img src="{% static './img/AIBUS2.jpg' %}" alt="logo" width="200" height="200" style="margin-top: -85px;"></a>
   <div class="topnav" id="myTopnav">
-   <!--<a class="active" href="http://127.0.0.1:8000/">Giới thiệu</a>
-    <a href="#services">Sản phẩm</a>
-    <a href="#expertise" hidden>Tin mới</a>
-    <a href="#casestudy">Hướng dẫn</a>
-      1.Tạo hồ sơ đăng ký doanh nghiệp tư nhân
-      2.Tạo hồ sơ đăng ký doanh nghiệp TNHH 1 TV
-      3.Tạo hồ sơ đăng ký doanh nghiệp TNHH 2 TV trở lên
-      4.Tạo hồ sơ đăng ký công ty cổ phần
-      5.Nạp tiền & thanh toán
-      6.Khắc phục sự cố
-    <a href="recruitment">Tuyển dụng</a>
-    <a href="login">Đăng nhập / Đăng ký</a>-->
+   
     <div class="menu-item">
       <a href="http://127.0.0.1:8000/">Giới thiệu</a>
     </div>
@@ -48,12 +37,42 @@
       </div>
     </div>
     <div class="menu-item">
-      <a href="recruitment">Tuyển dụng</a>
+      <a href="http://127.0.0.1:8000/recruitment">Tuyển dụng</a>
     </div>
-    <div class="menu-item">
-      <a href="http://127.0.0.1:8000/login/">Đăng nhập / Đăng ký</a>
+    <div class="menu-item " id="authDisplay">
+      <!--<a  ></a>-->
     </div>
-    
+    <div class="user-form-container" id="userForm">
+      <div class="profile-container">
+      <div class="profile-image">
+        <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg">
+      </div>
+      <div class="profile-info">
+        <h2 class="profile-name">User Name</h2>
+        <p class="profile-id"><strong>ID:</strong> 12345678</p>
+        <p class="profile-points"><strong>Tổng tiền:</strong> 100</p>
+      </div>
+      <button type="button" onclick="logOutbtn()" class="logOutbtn">Đăng xuất</button></div>
+    </div>
+    <div class="login-form-container" id="loginForm">
+      <form class="login-form backgrlogin" id="loginFormElement">
+        <div class="loginbody">
+          
+              <h1>ĐĂNG NHẬP / ĐĂNG KÝ</h1>
+              
+              <input type="text" class="user" id="user" name="user" placeholder="Tên đăng nhập/ email ..."><p></p>
+              <input type="password" class="pass" id="pass" name="pass" placeholder="Mật khẩu ..."><p></p>
+              <button type="button" class="loginbtn" id="loginbtn">Đăng nhập</button>
+              <button type="button" class="registerbtn" id="registerbtn">Đăng ký</button><p></p>
+              <button type="button" class="logingooglebtn" id="logingooglebtn">
+                  
+                  <img src="{% static 'icon/google.png' %}" alt="err" width="30px" height="30px" style="position: relative;top: 3px;">
+                  <span style="position: relative;top: -6px; margin-left: 5px;">Đăng nhập với google</span>
+          </button>
+          <button type="button" onclick="hideLoginform()" class="closebtn">Thoát</button>
+      </div>
+      </form>
+    </div>
     
     <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa-solid fa-gear"></i></a>
   </div>
