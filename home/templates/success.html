@@ -5,37 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 </head>
 <body>
     {% include 'header.html' %}
     <div class="successpage">
-        <img src="{% static 'icon/checked.png' %}" alt="err" width="80px" height="80px">
-        <h1>Cảm ơn đã sử dụng dịch vụ</h1>
+        <img src="{% static 'icon/checked.png' %}" alt="err" width="80px" height="80px" hidden>
+        <h1 hidden>Cảm ơn đã sử dụng dịch vụ</h1>
+        <h1>Thanh toán dịch vụ</h1>
         <div class="orderdetail">
-            <p>Order Details</p>
-            <p>Status :</p>
+            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trạng thái : 
+                <span style="color: red;" >Chưa thanh toán</span>
+                <span style="color: rgb(0, 102, 255);" hidden>Đã thanh toán</span>
+            </p> 
             <div class="infordetail">
                 <div class="horizontal"></div>
-                <h3>Product No</h3>
-                <h3>Product Description</h3>
-                <h3>Unit Price</h3>
-                <h3>Quantity</h3>
-                <h3>Product Total</h3>
+                <h3>Loại hồ sơ</h3>
+                <h3></h3>
+                <h3></h3>
+                <h3></h3>
+                <h3>Phí dịch vụ</h3>
             </div>
                 <div class="dash"></div>
                 <div class="subtotal">
-                <h4>Sub total</h4>
-                <h5>$</h5><p></p>
-                <h4>Total</h4>
-                <h5>$</h5>
+                <h4>Tên bộ hồ sơ</h4>
+                <h5><span style="margin-right: 10px;">100.000</span>VND</h5><p></p>
+                <!--<h4>Tổng cộng: </h4>
+                <h5><span style="margin-right: 10px;">100.000</span>VND</h5>-->
                 </div>
                 <div class="dash"></div>
-                <div class="download">
-                <span>Dowload Order Details PDF </span>
-                <img src="{% static 'icon/pdf.png' %}" alt="err" width="40px" height="40px">
-                </div>      
-                
+                <div>
+                <div class="download" style="cursor:pointer" >
+                <span >Dowload Order Details PDF </span>
+                <img src="{% static 'icon/pdf.png' %}" alt="err" width="40px" height="40px" ></div>
+                </div> 
+                <div class="pay" id="pay">
+                    <button type="button" onclick="paybtn">Thanh toán</button>
+                </div>     
             </div>
         </div>
     </div>

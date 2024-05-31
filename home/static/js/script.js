@@ -1,7 +1,7 @@
 const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
-var isLoggedIn = false;
+var isLoggedIn = true;
 setInterval(auto, 7000);
 
 function myFunction() {
@@ -34,13 +34,32 @@ function topFunction() {
 
 // crate profile
 document.getElementById('createprofile').addEventListener('click', function() {
-  console.log('12');
-    window.location.href = "createprofile"; 
+  if(isLoggedIn){
+    window.location.href = "createprofile";
+  } else{
+    alert('Chưa đăng nhập');
+  }
 });
+function successbtn() {
+  
+    var checkbox = document.getElementById('privacy');
+    if (checkbox.checked) {
+      window.location.href = "http://127.0.0.1:8000/success";
+    } else {
+        alert('Bạn phải đọc và đồng ý các điều khoản dịch vụ và chính sách quyền riêng tư trước khi tạo hồ sơ !');
+    
+    }
+  //alert('113');
+  //window.location.href = "http://127.0.0.1:8000/success"; 
+ }
 
 //edit profile
 document.getElementById('editprofile').addEventListener('click', function() {
-    window.location.href = "createprofile"; 
+  if(isLoggedIn){
+    window.location.href = "createprofile";
+  } else{
+    alert('Chưa đăng nhập');
+  }
 });
 var slideIndex = 1;
 showSlider(slideIndex);
@@ -48,6 +67,7 @@ showSlider(slideIndex);
 document.getElementById('homebtn').addEventListener('click', function() {
   window.location.href = "createprofile"; 
 });
+
 
 
 
@@ -355,7 +375,7 @@ function confirmButton() {
   
   imgForm.style.display = 'none';
   radioForm.style.display = 'none';
-  infor.style.display = 'block';
+  infor.style.display = 'flex';
   
   /*window.location.href = "https://www.google.com";*/
 }
@@ -442,3 +462,85 @@ function userlogin() {
     authDisplay.appendChild(loginButton);
   }
 };
+
+function setMinDateForDateInput() {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('datecreate').setAttribute('min', today);
+}
+
+function toggleForm() {
+  const selectElement = document.getElementById('selectlocation');
+  const formElement = document.getElementById('additionalForm');
+  if (selectElement.value === 'option2') {
+      formElement.style.display = 'block';
+  } else {
+      formElement.style.display = 'none';
+  }
+}
+
+function ownerForm() {
+  const selectElement = document.getElementById('selectowner');
+  const individualForm = document.getElementById('individualForm');
+  const organizationForm = document.getElementById('organizationForm');
+  if (selectElement.value === 'option1') {
+    individualForm.style.display = 'block';
+    organizationForm.style.display = 'none';
+  } else if(selectElement.value === 'option2') {
+    individualForm.style.display = 'none';
+    organizationForm.style.display = 'block';
+  }else{
+    individualForm.style.display = 'none';
+    organizationForm.style.display = 'none';
+  }
+}
+function typeofForm() {
+  const selectElement = document.getElementById('typeof');
+  const individualForm = document.getElementById('typeofForm');
+  
+  if (selectElement.value === 'option4') {
+    individualForm.style.display = 'block';
+  }else{
+    individualForm.style.display = 'none';
+    
+  }
+}
+function businesstransformation() {
+  const selectElement = document.getElementById('businesstransformation');
+  const dividForm = document.getElementById('dividForm');
+  const businessconversionForm = document.getElementById('businessconversionForm');
+  const sponsoringfacilityForm = document.getElementById('sponsoringfacilityForm');
+  
+  if (selectElement.value === 'option1') {
+    dividForm.style.display = 'block';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'none';
+  }else if (selectElement.value === 'option2') {
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'block';
+    sponsoringfacilityForm.style.display = 'none';
+  }else if (selectElement.value === 'option3') {
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'block';
+  }else{
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'none';
+  }
+}
+
+function addRow() {
+  const table = document.getElementById("businessTable");
+  const rowCount = table.rows.length;
+  const row = table.insertRow(rowCount);
+
+  const cell1 = row.insertCell(0);
+  const cell2 = row.insertCell(1);
+  const cell3 = row.insertCell(2);
+  const cell4 = row.insertCell(3);
+
+  cell1.innerHTML = rowCount; // STT (Số thứ tự)
+  cell2.innerHTML = `<input type="text" name="tenNganh">`; // Tên ngành
+  cell3.innerHTML = `<input type="text" name="maNganh">`; // Mã ngành
+  cell4.innerHTML = `<input type="checkbox" name="nganhKinhDoanhChinh">`; // Ngành, nghề kinh doanh chính
+}

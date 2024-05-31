@@ -1051,6 +1051,23 @@ background-color: #2196F3;
 .uploadpicture h5 a{
   color: #0D47A1;
 }
+.infordiv{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infor{
+  box-shadow: 0 0 25px -4px rgb(132, 177, 255);
+  border-radius: 10px;
+  /*border: 1px solid #373737;*/
+  padding: 30px;
+  width: 60%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .infor h6{
   color: #959DB2;
 }
@@ -1078,30 +1095,32 @@ background-color: #2196F3;
   border-left: none;
   border-right: none;
 }
+
 .checkbox {
-  position: relative;
-  left: -150px;
+  /*position: relative;
+  left: -150px;*/
+  display: flex;
 }
 .checkbox span{
-  left: 70px;
+  /*left: 70px;*/
   font-size: 10px;
   position: relative;
 }
 .checkbox .createbtn{
-  position: relative;
-  left: 250px;
+  
 }
 .checkbox .privacy{
   position: relative;
-  left: 70px;
+  /*left: 70px;*/
 }
 .createbtn{
+  
   cursor: pointer;
   color: #00BCD4;
-  font-size: 18px;
+  font-size: 25px;
   margin: 40px;
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 40px;
   background-color: #f0f0f0;
   border: 2px solid #00BCD4;
   border-radius: 10px;
@@ -1117,15 +1136,14 @@ background-color: #2196F3;
   /*color: #f0f0f0;*/
 }
 .successpage{
-  height: 700px;
-  position: relative;
+  /*height: 700px;
+  position: relative;*/
   top: 50px;
   text-align: center;
 }
 .orderdetail{
   text-align: left;
-  position: relative;
-  left:400px;
+  display: inline-block;
   border: 2px solid #7b7b7b;
   width: 700px;
 }
@@ -1145,7 +1163,7 @@ background-color: #2196F3;
   align-items: center;
 }
 .infordetail h3{
-  padding: 0 23px 0 23px;
+  padding: 0 52px 0 52px;
 }
 .subtotal{
   display: grid;
@@ -1153,20 +1171,37 @@ background-color: #2196F3;
 }
 .subtotal h5{
   
-  padding-left: 450px;
+  padding-left: 350px;
 }
 .subtotal h4{
   
-  padding-left: 20px;
+  padding-left: 60px;
 }
 .orderdetail h2{
   padding-left: 20px;
 }
 .download{
+  width: 50%;
   margin-top: 20px;
   margin-bottom: 20px;
-  display: flex;
-  text-align: center;
+  display: none;
+  /*display: flex;*/
+  /*text-align: center;*/
+  
+}
+.pay{
+  float: right;
+  margin: 20px 50px 20px 0;
+  
+}
+.pay button{
+  border: 2px solid #2196F3;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #2196F3;
+  cursor:pointer
 }
 .download span{
   margin-right: 20px;
@@ -1430,7 +1465,7 @@ background-color: #2196F3;
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: .5s ease;
+  transition: .9s ease;
 }
 
 .container:hover .overlay {
@@ -1592,4 +1627,36 @@ background-color: #2196F3;
     cursor: pointer;
     box-shadow: 0 8px 12px rgba(33, 150, 243, 0.3);
   
+}
+table input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: none; /* Bỏ đường viền */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước của input */
+}
+.taxregistration input[type="text"]{
+  width: 200px;
+  border-bottom: 1px solid #000000;
+}
+table th{
+  padding: 5px;
+}
+table {
+  border-collapse: collapse;
+  
+}
+#businessTable{
+  text-align: center;
+}
+.addrowbtn{
+  border-radius: 5px;
+  background-color: #ffffff;
+  border-color: #2196F3;
+  color: #2196F3;
+  margin: 10px;
+}
+.infordiv input[type="text"]{
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
