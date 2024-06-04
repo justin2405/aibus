@@ -469,12 +469,13 @@ function setMinDateForDateInput() {
 }
 
 function toggleForm() {
-  const selectElement = document.getElementById('selectlocation');
-  const formElement = document.getElementById('additionalForm');
-  if (selectElement.value === 'option2') {
-      formElement.style.display = 'block';
+  var checkbox = document.getElementById("toggleCheckbox");
+  var form = document.getElementById("additionalForm");
+
+  if (checkbox.checked) {
+      form.style.display = "block";
   } else {
-      formElement.style.display = 'none';
+      form.style.display = "none";
   }
 }
 
@@ -510,15 +511,15 @@ function businesstransformation() {
   const businessconversionForm = document.getElementById('businessconversionForm');
   const sponsoringfacilityForm = document.getElementById('sponsoringfacilityForm');
   
-  if (selectElement.value === 'option1') {
+  if (selectElement.value === 'option2' || selectElement.value === 'option3'|| selectElement.value === 'option4'||selectElement.value === 'option5') {
     dividForm.style.display = 'block';
     businessconversionForm.style.display = 'none';
     sponsoringfacilityForm.style.display = 'none';
-  }else if (selectElement.value === 'option2') {
+  }else if (selectElement.value === 'option6') {
     dividForm.style.display = 'none';
     businessconversionForm.style.display = 'block';
     sponsoringfacilityForm.style.display = 'none';
-  }else if (selectElement.value === 'option3') {
+  }else if (selectElement.value === 'option7') {
     dividForm.style.display = 'none';
     businessconversionForm.style.display = 'none';
     sponsoringfacilityForm.style.display = 'block';

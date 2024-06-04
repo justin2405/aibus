@@ -68,6 +68,7 @@ def Recruitment(request):
     return render(request, "recruitment.html", context)
 
 
+
 @register
 def convert_doc(request):
     document = docx.Document("home/test.docx")
