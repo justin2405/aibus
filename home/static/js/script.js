@@ -467,7 +467,44 @@ function setMinDateForDateInput() {
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('datecreate').setAttribute('min', today);
 }
+function businesstransformation() {
+  
+  const selectElement = document.getElementById('businesstransformation');
+  const dividForm = document.getElementById('dividForm');
+  const businessconversionForm = document.getElementById('businessconversionForm');
+  const sponsoringfacilityForm = document.getElementById('sponsoringfacilityForm');
+  
+  if (selectElement.value === 'option2' || selectElement.value === 'option3'|| selectElement.value === 'option4'||selectElement.value === 'option5') {
+    dividForm.style.display = 'block';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'none';
+  }else if (selectElement.value === 'option6') {
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'block';
+    sponsoringfacilityForm.style.display = 'none';
+  }else if (selectElement.value === 'option7') {
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'block';
+  }else{
+    dividForm.style.display = 'none';
+    businessconversionForm.style.display = 'none';
+    sponsoringfacilityForm.style.display = 'none';
+  }
+  
+}
 
+function typeofForm() {
+  const selectElement = document.getElementById('typeof');
+  const individualForm = document.getElementById('typeofForm');
+  
+  if (selectElement.value === 'option4') {
+    individualForm.style.display = 'block';
+  }else{
+    individualForm.style.display = 'none';
+    
+  }
+}
 function toggleForm() {
   var checkbox = document.getElementById("toggleCheckbox");
   var form = document.getElementById("additionalForm");
@@ -494,41 +531,8 @@ function ownerForm() {
     organizationForm.style.display = 'none';
   }
 }
-function typeofForm() {
-  const selectElement = document.getElementById('typeof');
-  const individualForm = document.getElementById('typeofForm');
-  
-  if (selectElement.value === 'option4') {
-    individualForm.style.display = 'block';
-  }else{
-    individualForm.style.display = 'none';
-    
-  }
-}
-function businesstransformation() {
-  const selectElement = document.getElementById('businesstransformation');
-  const dividForm = document.getElementById('dividForm');
-  const businessconversionForm = document.getElementById('businessconversionForm');
-  const sponsoringfacilityForm = document.getElementById('sponsoringfacilityForm');
-  
-  if (selectElement.value === 'option2' || selectElement.value === 'option3'|| selectElement.value === 'option4'||selectElement.value === 'option5') {
-    dividForm.style.display = 'block';
-    businessconversionForm.style.display = 'none';
-    sponsoringfacilityForm.style.display = 'none';
-  }else if (selectElement.value === 'option6') {
-    dividForm.style.display = 'none';
-    businessconversionForm.style.display = 'block';
-    sponsoringfacilityForm.style.display = 'none';
-  }else if (selectElement.value === 'option7') {
-    dividForm.style.display = 'none';
-    businessconversionForm.style.display = 'none';
-    sponsoringfacilityForm.style.display = 'block';
-  }else{
-    dividForm.style.display = 'none';
-    businessconversionForm.style.display = 'none';
-    sponsoringfacilityForm.style.display = 'none';
-  }
-}
+
+
 
 function addRow() {
   const table = document.getElementById("businessTable");
@@ -544,4 +548,7 @@ function addRow() {
   cell2.innerHTML = `<input type="text" name="tenNganh">`; // Tên ngành
   cell3.innerHTML = `<input type="text" name="maNganh">`; // Mã ngành
   cell4.innerHTML = `<input type="checkbox" name="nganhKinhDoanhChinh">`; // Ngành, nghề kinh doanh chính
+}
+function validatePhoneNumber(input) {
+  input.value = input.value.replace(/[^0-9]/g, ''); // Loại bỏ các ký tự không phải số
 }

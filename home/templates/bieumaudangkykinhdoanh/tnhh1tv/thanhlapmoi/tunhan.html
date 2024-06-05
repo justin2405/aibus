@@ -1,13 +1,13 @@
 {% load static %}
 <html> 
-    <div class="infor" id="infor"  >
+    <form class="infor" id="infor"  >
        
-        <ol class="forminfor">
+        <ol class="forminfor" onchange="businesstransformation()">
           <p>Thời gian tạo hồ sơ: <input type="date" id="datecreate" name="datecreate"></p>
           <p>Phòng Đăng ký kinh doanh tỉnh, thành phố : <input type="text" id="registry" name="registry"></p>
           <p>Tôi là: <input type="text" id="nameregistration" name="nameregistration"></p>
           <li ><!--1--><strong>Tình trạng thành lập: </strong>
-            <select id="businesstransformation" onchange="businesstransformation()">
+            <select id="businesstransformation" >
               <option>Chọn tình trạng</option>
               <option value="option1">Thành lập mới</option>
               <option value="option2">Thành lập trên cơ sở tách doanh nghiệp</option>
@@ -49,12 +49,12 @@
                 </select>
                 <br><input type="checkbox">Doanh nghiệp xã hội
                 <br><input type="checkbox" id="toggleCheckbox" onclick="toggleForm()">Công ty chứng khoán/Công ty quản lý quỹ đầu tư chứng khoán/Công ty đầu tư chứng khoán
-                <form id="additionalForm" hidden>
+                <div id="additionalForm" hidden>
                 <p>Số giấy phép thành lập và hoạt động: <input type="text"></p>
                 <p>Cấp ngày: <input type="date" ></p>
                 <p>Doanh nghiệp có Giấy chứng nhận quyền sử dụng đất tại đảo và xã, phường, thị trấn biên giới; xã, phường, thị trấn ven biển; khu vực khác có ảnh hưởng đến quốc phòng, an ninh: <input type="checkbox">Có</p>
                 <!--checkbox -->
-                </form>
+                </div>
 
               </li>
             </ul>
@@ -80,7 +80,7 @@
                       </tr>
                   </tbody>
               </table>
-              <button onclick="addRow()" class="addrowbtn">Thêm dòng</button>
+              <button type="button" onclick="addRow()" class="addrowbtn">Thêm dòng</button>
           </div>
             <!--4-->
           </li>
@@ -107,21 +107,22 @@
                     <option value="option3">Hộ chiếu</option>
                     <option value="option4">Loại khác</option>
                   </select>
-                  <form id="typeofForm" hidden>
+                  <p id="typeofForm" hidden>
                     Loại giấy tờ <input type="text">
-                  </form>
+                  </p>
                 </p>
-                <p>Số: <input type="number"></p>
+                <p>Số: <input type="text"></p>
                 <p>Ngày cấp: <input type="date"></p>
+                <p>Nơi cấp: <input type="text"></p>
                 <p>Ngày hết hạn: <input type="date"></p>
                 <p>Địa chỉ thường trú </p>
-                <p>Số nhà: <input type="text"></p>
+                <p>Số nhà, ngách, hẻm, ngõ, đường phố/tổ/xóm/ấp/thôn: <input type="text"></p>
                 <p>Xã/Phường/Thị trấn: <input type="text"></p>
                 <p>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></p>
                 <p>Tỉnh/Thành phố: <input type="text"></p>
                 <p>Quốc gia: <input type="text"></p>
                 <p>Địa chỉ liên lạc</p>
-                <p>Số nhà: <input type="text"></p>
+                <p>Số nhà, ngách, hẻm, ngõ, đường phố/tổ/xóm/ấp/thôn: <input type="text"></p>
                 <p>Xã/Phường/Thị trấn: <input type="text"></p>
                 <p>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></p>
                 <p>Tỉnh/Thành phố: <input type="text"></p>
@@ -168,13 +169,11 @@
             <!--5-->
           </li>
           <li><!--6--><strong>Vốn điều lệ</strong>
-            <p>Vốn điều lệ bằng số: <input type="number"></p>
-            <!--tự động hiện-->
+            <p>Vốn điều lệ bằng số: <input type="text"></p>
             <p>Vốn điều lệ bằng chữ: <input type="text"></p>
             <p>Giá trị tương đương theo đơn vị tiền nước ngoài: <input type="text"></p>
             <p>Loại ngoại tệ: <input type="text"></p>
             <p>Có hiển thị thông tin về giá trị tương đương theo đơn vị tiền tệ nước ngoài trên Giấy chứng nhận đăng ký doanh nghiệp hay không? <input type="checkbox" value="co">Có</p>
-            <!--radio có hoặc không-->
             <!--6-->
           </li>
           <li><!--7--><strong>Nguồn vốn điều lệ</strong>
@@ -282,10 +281,10 @@
                 <option value="option3">Hộ chiếu</option>
                 <option value="option4">Loại khác</option>
               </select>
-              <form id="typeofForm" hidden>
-                Loại giấy tờ <input type="text">
-              </form>
-            <p>Số: <input type="number"></p>
+              <div id="typeofForm" style="display: none;">
+                Loại giấy tờ: <input type="text">
+              </div>
+            <p>Số: <input type="text"></p>
             <p>Ngày cấp: <input type="date"></p>
             <p>Nơi cấp: <input type="text"></p>
             <p>Ngày hết hạn: <input type="date"></p>
@@ -301,7 +300,8 @@
             <p>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></p>
             <p>Tỉnh/Thành phố: <input type="text"></p>
             <p>Quốc gia: <input type="text"></p>
-            <p>Điện thoại: <input type="number"></p>
+            <p>Điện thoại: <input type="text" 
+              id="phone" maxlength="12" oninput="validatePhoneNumber(this)"></p>
             <p>Email: <input type="text"></p>
             <!--9-->
           </li>
@@ -394,16 +394,8 @@
             <input type="checkbox"> 06 tháng một lần<br>
           <!--12-->  
           </li>
-          <!-- <li>
-          <p><strong>Chuyển đổi kinh doanh: </strong>
-          <select id="businesstransformation" onchange="businesstransformation()">
-            <option value="">Chọn loại chuyển đổi kinh doanh</option>
-            <option value="option1">Thông tin về các doanh nghiệp bị chia, bị tách, bị hợp nhất, được chuyển đổi </option>
-            <option value="option2">Thông tin về hộ kinh doanh được chuyển đổi </option>
-            <option value="option3">Thông tin về cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện được chuyển đổi</option>
-            
-          </select></p></li> -->
-          <li id="dividForm" hidden><!--13--><strong>Thông tin về các doanh nghiệp bị chia, bị tách, bị hợp nhất, được chuyển đổi</strong>
+          
+          <li id="dividForm" style="display:none;"><!--13--><strong>Thông tin về các doanh nghiệp bị chia, bị tách, bị hợp nhất, được chuyển đổi</strong>
             <p>Tên doanh nghiệp: <input type="text"></p>
             <p>Mã số doanh nghiệp/Mã số thuế: <input type="text"></p>
             <p>Số Giấy chứng nhận đăng ký kinh doanh: <input type="text"></p>
@@ -427,11 +419,11 @@
                 <option value="option3">Hộ chiếu</option>
                 <option value="option4">Loại khác</option>
               </select>
-              <form id="typeofForm" hidden>
+              <div id="typeofForm" hidden>
                 Loại giấy tờ <input type="text">
-              </form></p>
+              </div></p>
             
-            <p>Số: <input type="number"></p>
+            <p>Số: <input type="text"></p>
             <p>Ngày cấp: <input type="date"></p>
             <p>Nơi cấp: <input type="text"></p>
             <p>Ngày hết hạn: <input type="date"></p>
@@ -453,12 +445,12 @@
                 <option value="option3">Hộ chiếu</option>
                 <option value="option4">Loại khác</option>
               </select>
-              <form id="typeofForm" hidden>
+              <div id="typeofForm" hidden>
                 Loại giấy tờ <input type="text">
-              </form>
+              </div>
             </p>
             
-            <p>Số: <input type="number"></p>
+            <p>Số: <input type="text"></p>
             <p>Ngày cấp: <input type="date"></p>
             <p>Nơi cấp: <input type="text"></p>
             <p>Ngày hết hạn: <input type="date"></p>
@@ -477,5 +469,5 @@
           Tạo 
           <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px" style="position: relative;top: 3px;left: 7px;">
         </button>
-      </div>
+      </form>
 </html>

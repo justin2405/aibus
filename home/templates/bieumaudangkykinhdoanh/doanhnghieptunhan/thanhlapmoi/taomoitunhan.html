@@ -1,0 +1,331 @@
+{% load static %}
+<html>
+    
+    <div class="infor" id="infor"  >
+        <!--<h5 >Điền đầy đủ các thông tin sau đây: </h5>
+        <input type="text" class="name" id="name" name="name" placeholder="Tên của bạn ...">
+        <input type="text" class="email" id="email" name="email" placeholder="Email ..."><p></p>
+        <input type="text" class="numberphone" id="numberphone" name="numberphone" placeholder="Số điện thoại ...">
+        <input type="company" class="company" id="company" name="company" placeholder="Công ty ..."><p></p>
+        <textarea type="text" class="message"id="message" name="message" placeholder="Ghi chú ..."></textarea><p></p>-->
+        <ol class="forminfor">
+            <p>Thời gian tạo hồ sơ: <input type="date" id="datecreate" name="datecreate"></p>
+            <p>Phòng Đăng ký kinh doanh tỉnh, thành phố : <input type="text" id="registry" name="registry"></p>
+            <!-- Thông tin cá nhân -->
+            <p>Tôi là: <input type="text" id="nameregistration" name="nameregistration"></p>
+            <p>Giới tính: <input type="checkbox" value="Nu"> Nữ</p>
+            <p>Sinh ngày: <input type="date"></p>
+            <p>Dân tộc: <input type="text"></p>
+            <p>Quốc tịch: <input type="text"></p>
+            <p>Loại giấy tờ pháp lý của cá nhân: 
+                <select id="typeof" onchange="typeofForm()">
+                <option value="">Chọn loại giấy tờ</option>
+                <option value="option1">Chứng minh nhân dân</option>
+                <option value="option2">Căn cước công dân</option>
+                <option value="option3">Hộ chiếu</option>
+                <option value="option4">Loại khác</option>
+                </select>
+                <form id="typeofForm" hidden>
+                Loại giấy tờ <input type="text">
+                </form>
+            </p>
+            <p>Số giấy tờ pháp lý của cá nhân: <input type="number"></p>
+            <p>Ngày cấp: <input type="date"></p>
+            <p>Nơi cấp: <input type="text"></p>
+            <p>Ngày hết hạn: <input type="date"></p>
+            <p>Địa chỉ thường trú </p>
+            <p>Số nhà, ngách, hẻm, ngõ, đường phố/tổ/xóm/ấp/thôn: <input type="text"></p>
+            <p>Xã/Phường/Thị trấn: <input type="text"></p>
+            <p>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></p>
+            <p>Tỉnh/Thành phố: <input type="text"></p>
+            <p>Địa chỉ liên lạc</p>
+            <p>Số nhà: <input type="text"></p>
+            <p>Xã/Phường/Thị trấn: <input type="text"></p>
+            <p>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></p>
+            <p>Tỉnh/Thành phố: <input type="text"></p>
+            <p>Điện thoại: <input type="text"></p>
+            <p>Email: <input type="text"></p>
+            <li ><!--1--><strong>Tình trạng thành lập: </strong>
+                <select id="typeof" onchange="typeofForm()">
+                    <option value="option1">Thành lập mới</option>
+                    <option value="option2">Thành lập trên cơ sở chuyển đổi từ hộ kinh doanh</option>
+                    <option value="option3">Thành lập trên cơ sở chuyển đổi từ cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện</option>
+                </select>
+                <form id="typeofForm" hidden>
+                    Chọn tình trạng thành lập
+                <input type="text">
+                </form>
+                <!--1-->
+            </li>
+            <li><!--2--><strong>Tên doanh nghiệp: </strong>
+                <ul>
+                    <li>Tên doanh nghiệp bằng tiếng Việt: <input type="text" id="vietnamesecompanyname" name="vietnamesecompanyname"></li>
+                    <li>Tên doanh nghiệp viết bằng tiếng nước ngoài: <input type="text" id="companynameinforeignlanguage" name="companynameinforeignlanguage"></li>
+                    <li>Tên doanh nghiệp viết tắt: <input type="text" id="abbreviatedcompanyname" name="companynameinforeignlanguage"></li>
+                </ul>
+                <!--2-->
+            </li>
+            <li><!--3--><strong>Địa chỉ trụ sở chính:</strong>
+                <ul>
+                    <li>Số nhà, ngách, hẻm, ngõ, đường phố/tổ/xóm/ấp/thôn: <input type="text" id="companyhousenumber" name="companyhousenumber"></li>
+                    <li>Xã/Phường/Thị trấn: <input type="text"></li>
+                    <li>Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"></li>
+                    <li>Tỉnh/Thành phố: <input type="text"></li>
+                    <li>Điện thoại: <input type="text"></li>
+                    <li>Email: <input type="text"></li>
+                    <li>Fax: <input type="text"></li>
+                    <li>Website: <input type="text"></li>
+                    <li>Doanh nghiệp nằm trong 
+                        <select id="selectlocation" onchange="toggleForm()">
+                            <option>Chọn vị trí</option>
+                            <option>Khu công nghiệp</option>
+                            <option>Khu chế xuất</option>
+                            <option>Khu kinh tế</option>
+                            <option>Khu công nghệ cao</option>
+                        </select>
+                    </li>
+                    <li><input type="checkbox"> Doanh nghiệp xã hội</li>
+                </ul>
+                <!--3-->
+            </li>
+            <li><!--4--><strong>Ngành nghề kinh doanh:</strong>
+                <div class="container">
+                    <table id="businessTable" border="1">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên ngành</th>
+                                <th>Mã ngành</th>
+                                <th>Ngành, nghề kinh doanh chính</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" name="tenNganh" ></td>
+                                <td><input type="text" name="maNganh" ></td>
+                                <td ><input type="checkbox" name="nganhKinhDoanhChinh" style="border:none"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button onclick="addRow()" class="addrowbtn">Thêm dòng</button>
+                </div>
+                <!--4-->
+            </li>
+        
+            <li><!--5--><strong>Vốn đầu tư:</strong>
+                <p>Vốn đầu tư bằng số: <input type="number"></p>
+                <!--tự động hiện-->
+                <p>Vốn đầu tư bằng chữ: <input type="text"></p>
+                <p>Giá trị tương đương theo đơn vị tiền nước ngoài: <input type="text"></p>
+                <p>Loại ngoại tệ: <input type="text"></p>
+                <p>Có hiển thị thông tin về giá trị tương đương theo đơn vị tiền tệ nước ngoài trên Giấy chứng nhận đăng ký doanh nghiệp hay không? <input type="checkbox" value="co">Có</p>
+                <!--radio có hoặc không-->
+                <p>Tài sản góp vốn:</p>
+                <table border = "2px">
+                    <tr>
+                        <th >STT</th>
+                        <th >Tài sản góp vốn</th>
+                        <th >Giá trị vốn của từng tài sản trong vốn đầu tư (bằng số, VNĐ)</th>
+                        <th >Tỉ lệ (%)</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>Đồng Việt Nam</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ngoại tệ tự do chuyển đổi (ghi rõ loại ngoại tệ, số tiền được góp bằng mỗi loại ngoại tệ)</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Vàng</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Quyền sử dụng đất</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Quyền sở hữu trí tuệ</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Các tài sản khác (ghi rõ loại tài sản, số lượng và giá trị còn lại của mỗi loại tài sản, có thể lập thành danh mục riêng kèm theo hồ sơ đăng ký doanh nghiệp)</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tổng cộng</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+            </li>
+            <li><strong>Thông tin đăng ký thuế:</strong>
+                <!-- 6 -->
+                <table border="2px" class="taxregistration">
+                    <tr>
+                        <th>STT</th>
+                        <th>Các chỉ tiêu thông tin đăng ký thuế</th>
+                    </tr>
+                    <tr>
+                        <td>6.1</td>
+                        <td>Thông tin về Giám đốc/Tổng giám đốc <span class="note">(nếu có)</span>:<br>
+                            <span>Họ và tên Giám đốc/Tổng giám đốc: </span><input type="text" ><br>
+                            <span>Điện thoại:</span> <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.2</td>
+                        <td>Thông tin về Kế toán trưởng/Phụ trách kế toán <span class="note">(nếu có)</span>:<br>
+                            <span>Họ và tên Kế toán trưởng/Phụ trách kế toán: </span><input type="text"><br>
+                            <span>Điện thoại:</span> <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.3</td>
+                        <td>Địa chỉ nhận thông báo thuế <span class="note">(chỉ kê khai nếu địa chỉ nhận thông báo thuế khác địa chỉ trụ sở chính)</span>:<br>
+                            Số nhà, ngách, hẻm, ngõ, đường phố/tổ/xóm/ấp/thôn: <input type="text" ><br>
+                            Xã/Phường/Thị trấn:<input type="text"><br>
+                            Quận/Huyện/Thị xã/Thành phố thuộc tỉnh: <input type="text"><br>
+                            Tỉnh/Thành phố: <input type="text"><br>
+                            Điện thoại <span class="note">(nếu có)</span>: <input type="text"><br>
+                            Fax <span class="note">(nếu có)</span>: <input type="text"><br>
+                            Email <span class="note">(nếu có)</span>: <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.4</td>
+                        <td>Ngày bắt đầu hoạt động <span class="note">(trường hợp doanh nghiệp dự kiến bắt đầu hoạt động kể từ ngày được cấp Giấy chứng nhận đăng ký doanh nghiệp thì không cần kê khai nội dung này)</span>: <input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>6.5</td>
+                        <td>Hình thức hạch toán <span class="note">(Đánh dấu X vào một trong hai ô “Hạch toán độc lập” hoặc “Hạch toán phụ thuộc”. Trường hợp tích chọn ô “Hạch toán độc lập” mà thuộc đối tượng phải lập và gửi báo cáo tài chính hợp nhất cho cơ quan có thẩm quyền theo quy định thì tích chọn thêm ô “Có báo cáo tài chính hợp nhất”)</span>:<br>
+                            <input type="checkbox"> Hạch toán độc lập<br>
+                            <input type="checkbox"> Hạch toán phụ thuộc<br>
+                            <input type="checkbox"> Có báo cáo tài chính hợp nhất
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>6.6</td>
+                        <td>Năm tài chính:<br>
+                            Áp dụng từ ngày <input type="date"> đến ngày <input type="date">
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>6.7</td>
+                        <td>Tổng số lao động dự kiến: <input type="text">
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>6.8</td>
+                        <td>Hoạt động theo dự án BOT/BTO/BT/BOO,BLT,BTL,O&M:<br>
+                            <input type="checkbox"> Có<br>
+                            <input type="checkbox"> Không<br>
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>6.9</td>
+                        <td>Phương pháp tính thuế GTGT:<br>
+                            <input type="checkbox"> Khấu trừ<br>
+                            <input type="checkbox"> Trực tiếp trên GTGT<br>
+                            <input type="checkbox"> Trực tiếp trên doanh số<br>
+                            <input type="checkbox"> Không phải nộp thuế GTGT<br>
+                        </td>
+                    </tr>
+                </table>
+            <!-- 6 -->
+            </li>
+            <li><!--7--><strong>Đăng ký sử dụng hóa đơn:<br></strong>
+                <input type="checkbox"> Tự in hóa đơn<br>
+                <input type="checkbox"> Đặt in hóa đơn<br>
+                <input type="checkbox"> Sử dụng hóa đơn điện tử<br>
+                <input type="checkbox"> Mua hóa đơn của cơ quan thuế<br>
+                <!-- 7 -->
+            </li>
+            <li><!--8--><strong>Thông tin về việc đóng bảo hiểm xã hội</strong> <br> 
+                <span>Phương thức đóng bảo hiểm xã hội:</span><br>
+                <input type="checkbox"> Hàng tháng<br>
+                <input type="checkbox"> 03 tháng một lần<br>
+                <input type="checkbox"> 06 tháng một lần<br>
+            <!--8-->
+            </li>
+            <li><!--9--><strong>Thông tin về hộ kinh doanh được chuyển đổi</strong>
+                <span class="note">(chỉ kê khai trong trường hợp thành lập doanh nghiệp trên cơ sở chuyển đổi từ hộ kinh doanh)</span>
+                <p>Tên hộ kinh doanh: <input type="text"></p>
+                <p>Số Giấy chứng nhận đăng ký hộ kinh doanh: <input type="text"></p>
+                <p>Ngày cấp: <input type="date"></p>
+                <p>Mã số thuế của hộ kinh doanh: <input type="text"></p>
+                <p>Địa chỉ trụ sở hộ kinh doanh: <input type="text"></p>
+                <p>Tên chủ hộ kinh doanh: <input type="text"></p>
+                <p>Loại giấy tờ pháp lý: 
+                    <select id="typeof" onchange="typeofForm()">
+                        <option value="">Chọn loại giấy tờ</option>
+                        <option value="option1">Chứng minh nhân dân</option>
+                        <option value="option2">Căn cước công dân</option>
+                        <option value="option3">Hộ chiếu</option>
+                        <option value="option4">Loại khác</option>
+                    </select>
+                    <form id="typeofForm" hidden>
+                        Loại giấy tờ <input type="text">
+                    </form>
+                </p>
+                <p>Số giấy tờ pháp lý của cá nhân (kê khai theo giấy tờ pháp lý của cá nhân được ghi trên Giấy chứng nhận đăng ký thuế của hộ kinh doanh): <input type="text"></p>
+                <p>Ngày cấp: <input type="date"></p>
+                <p>Nơi cấp: <input type="text"></p>
+                <p>Ngày hết hạn: <input type="date"></p>
+            <!--9-->
+            </li>
+            <li><!--10--><strong>Thông tin về cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện được chuyển đổi </strong>
+                <span class="note">(chỉ kê khai trong trường hợp thành lập doanh nghiệp xã hội trên cơ sở chuyển đổi từ cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện):</span>
+                <p>Tên cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện (ghi bằng chữ in hoa): <input type="text"></p>
+                <p>Số Giấy chứng nhận đăng ký thành lập (Đối với cơ sở bảo trợ xã hội)/Số Giấy phép thành lập và công nhận điều lệ quỹ (Đối với quỹ xã hội/quỹ từ thiện): <input type="text"></p>
+                <p>Ngày cấp: <input type="date"></p>
+                <p>Nơi cấp: <input type="text"></p>
+                <p>Mã số thuế của cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện (chỉ kê khai MST 10 số): <input type="text"></p>
+                <p>Địa chỉ trụ sở chính: <input type="text"></p>
+                <p>Tên người đại diện cơ sở bảo trợ xã hội/quỹ xã hội/quỹ từ thiện:  <input type="text"></p>
+                <p>Loại giấy tờ pháp lý: 
+                    <select id="typeof" onchange="typeofForm()">
+                        <option value="">Chọn loại giấy tờ</option>
+                        <option value="option1">Chứng minh nhân dân</option>
+                        <option value="option2">Căn cước công dân</option>
+                        <option value="option3">Hộ chiếu</option>
+                        <option value="option4">Loại khác</option>
+                    </select>
+                    <form id="typeofForm" hidden>
+                        Loại giấy tờ <input type="text">
+                    </form>
+                </p>
+                <p>Số giấy tờ pháp lý của cá nhân (kê khai theo giấy tờ pháp lý của cá nhân được ghi trên Giấy chứng nhận đăng ký thuế của hộ kinh doanh): <input type="text"></p>
+                <p>Ngày cấp: <input type="date"></p>
+                <p>Nơi cấp: <input type="text"></p>
+                <p>Ngày hết hạn: <input type="date"></p>
+            <!--10-->  
+            </li>
+        </ol>
+
+        <div class="checkbox">
+            <p>
+                <input type="checkbox" class="privacy" id="privacy" name="privacy"><span>Tôi đã đọc và chấp nhận 
+                    <a style="color: #4299e1; text-decoration: underline">Điều khoản dịch vụ & Chính sách quyền riêng tư</a></span></p>
+        </div>
+        <button type="button" class="createbtn" id="createbtn" onclick="successbtn()">
+            Tạo 
+            <img src="{% static 'icon/send.png' %}" alt="err" width="18px" height="18px" style="position: relative;top: 3px;left: 7px;">
+          </button>
+    </div>
+
+</html>

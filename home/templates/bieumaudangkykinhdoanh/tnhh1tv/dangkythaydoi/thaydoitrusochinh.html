@@ -1,7 +1,17 @@
+{% load static %}
 <html>
-    <div class="infor" id="infor"  >
-        <p>Tên doanh nghiệp: <input type="text"></p>
-        <p>Ngày thay đổi: <input type="date"></p>
-        <p></p>
-    </div>
+    <form class="infor" id="infor"  >
+        <ol class="forminfor" onchange="businesstransformation()">
+            <p>Tại: <input type="text"> </p>
+            <p>Ngày <input type="date"></p>
+            <p>Kính gửi: Phòng Đăng ký kinh doanh tỉnh, thành phố : <input type="text" id="registry" name="registry"></p>
+            <p>Tên doanh nghiệp: <input type="text"></p>
+            <p>Mã số doanh nghiệp/mã số thuế: <input type="text"></p>
+            <p>Số Giấy chứng nhận đăng ký kinh doanh: <input type="text"></p>
+            <p>Ngày cấp: <input type="date" ></p>
+            <p>Nơi cấp: <input type="text"></p>
+            <p><input type="radio"> Đăng ký thay đổi trên cơ sở tách doanh nghiệp</p>
+            <p><input type="radio"> Đăng ký thay đổi trên cơ sở sáp nhập doanh nghiệp</p>
+        </ol>
+    </form>
 </html>
