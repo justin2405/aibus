@@ -1,7 +1,7 @@
 {% load static %}
 <html> 
     <form class="infor" id="infor"  >
-       
+       {% csrf_token %}
         <ol class="forminfor" onchange="businesstransformation()">
           <p>Thời gian tạo hồ sơ: <input type="date" id="datecreate" name="datecreate"></p>
           <p>Phòng Đăng ký kinh doanh tỉnh, thành phố : <input type="text" id="registry" name="registry"></p>
@@ -44,8 +44,6 @@
                   <option>Khu chế xuất</option>
                   <option>Khu kinh tế</option>
                   <option>Khu công nghệ cao</option>
-                  
-                  
                 </select>
                 <br><input type="checkbox">Doanh nghiệp xã hội
                 <br><input type="checkbox" id="toggleCheckbox" onclick="toggleForm()">Công ty chứng khoán/Công ty quản lý quỹ đầu tư chứng khoán/Công ty đầu tư chứng khoán
@@ -55,7 +53,6 @@
                 <p>Doanh nghiệp có Giấy chứng nhận quyền sử dụng đất tại đảo và xã, phường, thị trấn biên giới; xã, phường, thị trấn ven biển; khu vực khác có ảnh hưởng đến quốc phòng, an ninh: <input type="checkbox">Có</p>
                 <!--checkbox -->
                 </div>
-
               </li>
             </ul>
             <!--3-->

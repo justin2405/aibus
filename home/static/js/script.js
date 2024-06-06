@@ -320,16 +320,11 @@ function next(){
       $('[name=formimportpicture]').hide();
       const formData = new FormData();
       document.getElementById('selectprofiletype').scrollIntoView();
-      console.log(image_1.file);
       formData.append('image_1', image_1.file[0]);
       // formData.append('image_2', image_2.file[0]);
-      for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-      }
       var object = {};
       formData.forEach((value, key) => object[key] = value);
       var json = JSON.stringify(object);
-      console.log(json);
       $.ajax({
         type: "POST",
         url: "/process_image/",
