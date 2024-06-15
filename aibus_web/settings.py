@@ -130,3 +130,7 @@ CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 LOGIN_REDIRECT_URL = "/"
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]

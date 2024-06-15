@@ -6,14 +6,15 @@
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
     <!-- <meta name="csrf-token" content="{{ csrf_token }}" /> -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="setMinDateForDateInput()">
     {% include 'header.html' %}
     
     <div class="createprofilebody">
       <h1>HỒ SƠ ĐĂNG KÝ KINH DOANH</h1>
-      <div class="formimportpicture" id="formimportpicture">
+      <form class="formimportpicture" id="formimportpicture"  >
         {% csrf_token %}
         <h3>Tải lên ảnh CCCD</h3>
         <div style="display: grid;align-items: center;justify-content: center; width: 100%;position: relative;">
@@ -33,13 +34,13 @@
         </div>
         <div style="display: flex;align-items: center;justify-content: center;">
         <button type="button" class="importpicture" id="clickload" onclick="load()" ><img src="{% static 'icon/laptop.png' %}" alt="err" style="margin-right: 10px; "> <span >Tải lên máy tính</span></button>
-      </div>
+        </div>
       <p></p>
       <div id="image-preview"></div>
       <div id="image-details"></div>
-        <button class="createbtn" id="donebtn" onclick="next()"><a >Tiếp theo</a></button> 
+        <button type="button" class="createbtn" id="donebtn" onclick="next()" ><a >Tiếp theo</a></button> 
         <p style="color: red; display: none;" id="message">* Chưa tải bất kỳ hình ảnh nào</p>
-      </div>
+      </form>
       
       <div class="imageupload"  id="dropArea">
       </div>

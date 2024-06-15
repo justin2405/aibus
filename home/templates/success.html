@@ -6,6 +6,7 @@
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
 
 </head>
 <body>
@@ -15,11 +16,10 @@
         <h1 hidden>Cảm ơn đã sử dụng dịch vụ</h1>
         <h1>Thanh toán dịch vụ</h1>
         <div class="orderdetail">
-            
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trạng thái : 
-                <span style="color: red;" >Chưa thanh toán</span>
-                <span style="color: rgb(0, 102, 255);" hidden>Đã thanh toán</span>
-            </p> 
+            <!-- <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trạng thái : 
+                <span style="color: red; display: block;" id="nopay">Chưa thanh toán</span>
+                <span style="color: rgb(0, 102, 255); display: none;" id="paypay" >Đã thanh toán</span>
+            </p>  -->
             <div class="infordetail">
                 <div class="horizontal"></div>
                 <h3>Loại hồ sơ</h3>
@@ -28,27 +28,38 @@
                 <h3></h3>
                 <h3>Phí dịch vụ</h3>
             </div>
-                <div class="dash"></div>
-                <div class="subtotal">
+            <div class="dash"></div>
+            <div class="subtotal">
                 <h4>Tên bộ hồ sơ</h4>
                 <h5><span style="margin-right: 10px;">100.000</span>VND</h5><p></p>
                 <!--<h4>Tổng cộng: </h4>
                 <h5><span style="margin-right: 10px;">100.000</span>VND</h5>-->
+            </div>
+            <div class="dash"></div>
+            <div>
+                <div class="download" style="cursor:pointer">
+                    <span>Download Order Details PDF </span>
+                    <img src="{% static 'icon/pdf.png' %}" alt="err" width="40px" height="40px">
                 </div>
-                <div class="dash"></div>
-                <div>
-                <div class="download" style="cursor:pointer" >
-                <span >Dowload Order Details PDF </span>
-                <img src="{% static 'icon/pdf.png' %}" alt="err" width="40px" height="40px" ></div>
-                </div> 
-                <div class="pay" id="pay">
-                    <button type="button" onclick="paybtn">Thanh toán</button>
-                </div>     
+            </div>
+            <div class="pay" id="pay">
+                <button type="button" onclick="paybtn()">Thanh toán</button>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content modal-contentqr">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="qrcode" class="qr-code"></div>
+            <button type="button" onclick="confirmPayment()">Xác nhận</button>
+        </div>
+    </div>
+
+    
     {% include 'footer.html' %}
 
-    <script src="{% static 'js/script.js' %}"></script>
+    
 </body>
 </html>

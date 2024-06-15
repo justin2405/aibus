@@ -1062,8 +1062,8 @@ background-color: #2196F3;
   border-radius: 10px;
   /*border: 1px solid #373737;*/
   padding: 30px;
-  width: 60%;
-  display: flex;
+  width: 70%;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1192,7 +1192,7 @@ background-color: #2196F3;
 .pay{
   float: right;
   margin: 20px 50px 20px 0;
-  
+  display: block;
 }
 .pay button{
   border: 2px solid #2196F3;
@@ -1412,7 +1412,7 @@ background-color: #2196F3;
 }
 
 .modal {
-  display: none; /* Ẩn modal mặc định */
+  display: none; 
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -1641,11 +1641,14 @@ table input[type="text"] {
 table th{
   padding: 5px;
 }
+table td{
+  padding: 5px;
+}
 table {
   border-collapse: collapse;
   
 }
-#businessTable{
+#table_3{
   text-align: center;
 }
 .addrowbtn{
@@ -1659,4 +1662,47 @@ table {
   border-top: none;
   border-left: none;
   border-right: none;
+}
+.errormess {
+  color: red;
+  display: none;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+.modal-contentqr {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px; /* Set a fixed width */
+  text-align: center;
+  position: relative;
+}
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.qr-code {
+  margin: 20px auto;
 }

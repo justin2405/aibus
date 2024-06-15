@@ -2,7 +2,14 @@ const input = document.getElementById('loadpicture');
 const button = document.querySelector('#clickload');
 const dropArea = document.querySelector('#dropArea');
 var isLoggedIn = true;
+var parts = [];
+var dateday = [];
+
+
 setInterval(auto, 7000);
+// var citis = document.getElementById("city");
+// var districts = document.getElementById("district");
+// var wards = document.getElementById("ward");
 
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -52,6 +59,7 @@ function successbtn() {
   //alert('113');
   //window.location.href = "http://127.0.0.1:8000/success"; 
  }
+ 
 
 //edit profile
 document.getElementById('editprofile').addEventListener('click', function() {
@@ -67,7 +75,6 @@ showSlider(slideIndex);
 document.getElementById('homebtn').addEventListener('click', function() {
   window.location.href = "createprofile"; 
 });
-
 
 
 
@@ -306,6 +313,7 @@ function onchangepic() {
 
 }
 
+
 function next(){
   var imageContainer = document.getElementById('image-preview');
   var infoForm = document.getElementById('selectprofiletype');
@@ -320,11 +328,16 @@ function next(){
       $('[name=formimportpicture]').hide();
       const formData = new FormData();
       document.getElementById('selectprofiletype').scrollIntoView();
+      //console.log(image_1.file);
       formData.append('image_1', image_1.file[0]);
       // formData.append('image_2', image_2.file[0]);
+      for (var key of formData.entries()) {
+        //console.log(key[0] + ', ' + key[1]);
+      }
       var object = {};
       formData.forEach((value, key) => object[key] = value);
       var json = JSON.stringify(object);
+      //console.log(json);
       $.ajax({
         type: "POST",
         url: "/process_image/",
@@ -337,13 +350,57 @@ function next(){
         processData: false
       }).done(function (o) {
         console.log(o);
+        console.log("1");
+        let data = o;
+        parts = data.split('_');
+        let dateString = parts[2];
+        dateday = dateString.split('/');
+        // console.log(parts);
+        // console.log(parts[1]);
+        document.getElementById('name').value = parts[1]; 
       });
+      
+      
     } else {
       message.innerHTML = "*Số lượng ảnh tải lên vẫn chưa đủ (mặt trước và mặt sau CCCD)";
       message.style.display = 'block';
     }
   }
+  
 }
+
+// function addiddata(){
+//   var selectowner = document.getElementById('selectowner').options[document.getElementById('selectowner').selectedIndex].text;
+//   if(selectowner === "Chủ sở hữu là cá nhân")
+// }
+
+// function idload() {
+//   console.log('13')
+//   // e.preventDefault();
+
+//   let formData = new FormData();
+//   console.log('14')
+//   formData.append('image_1', document.getElementById('image_1').files[0]);
+//   console.log('15')
+//   fetch('/process_image/', {
+//       method: 'POST',
+//       body: formData,
+//       headers: {
+//           "X-CSRFToken": $('[name="csrfmiddlewaretoken"]').val(),
+//       }
+//   })
+//   console.log('16')
+//   console.log(formData);
+//   // .then(response => response.json())
+//   // .then(data => {
+//   //     //document.getElementById('number').value = data[0];
+//   //     //document.getElementById('name').value = data[1];
+//   //     // document.getElementById('date_of_birth').value = data[2];
+//   //     // document.getElementById('sex').value = data[3];
+//   //     // document.getElementById('nation').value = data[4];
+//   // })
+//   // .catch(error => console.error('Error:', error));
+// }
 function first_select() {
   let value = $("input[name='checkbox']:checked").val();
   }
@@ -464,7 +521,7 @@ function setMinDateForDateInput() {
 }
 function businesstransformation() {
   
-  const selectElement = document.getElementById('businesstransformation');
+  const selectElement = document.getElementById('table_1');
   const dividForm = document.getElementById('dividForm');
   const businessconversionForm = document.getElementById('businessconversionForm');
   const sponsoringfacilityForm = document.getElementById('sponsoringfacilityForm');
@@ -489,9 +546,9 @@ function businesstransformation() {
   
 }
 
-function typeofForm() {
-  const selectElement = document.getElementById('typeof');
-  const individualForm = document.getElementById('typeofForm');
+function typeofForm(id,form) {
+  const selectElement = document.getElementById(id);
+  const individualForm = document.getElementById(form);
   
   if (selectElement.value === 'option4') {
     individualForm.style.display = 'block';
@@ -501,7 +558,7 @@ function typeofForm() {
   }
 }
 function toggleForm() {
-  var checkbox = document.getElementById("toggleCheckbox");
+  var checkbox = document.getElementById("checkbox_2");
   var form = document.getElementById("additionalForm");
 
   if (checkbox.checked) {
@@ -515,22 +572,77 @@ function ownerForm() {
   const selectElement = document.getElementById('selectowner');
   const individualForm = document.getElementById('individualForm');
   const organizationForm = document.getElementById('organizationForm');
+  const organization = document.getElementById('organization');
+  const daySelect = document.getElementById('dob_day');
+  const monthSelect = document.getElementById('dob_month');
+  const yearSelect = document.getElementById('dob_year');
   if (selectElement.value === 'option1') {
     individualForm.style.display = 'block';
     organizationForm.style.display = 'none';
+    document.getElementById('own_name').value = parts[1]; 
+    document.getElementById('own_sex').value = parts[3];
+    
+    document.getElementById('national').value = parts[4];
+    // var selectowner = document.getElementById('selectowner').options[document.getElementById('selectowner').selectedIndex].text;
+    
+    
+    
+    // const getnowyear = new Date().getFullYear();
+    // const currentYear = new Date().getFullYear()+10;
+    // const yearnew =getnowyear - (getnowyear-1986);
+    // for (let i = yearnew; i <= currentYear; i++) {
+    //   let option = document.createElement('option');
+    //   option.value = option.text = i;
+    //   if (i == dateday[2]) {
+    //     option.selected = true;
+    //   }
+    //   yearSelect.appendChild(option);
+    // }
+    // for (let i = 1; i <= 12; i++) {
+    //   let option = document.createElement('option');
+    //   option.value = option.text = i;
+    //   if (i == dateday[1]) {
+    //       option.selected = true;
+    //   }
+    //   monthSelect.appendChild(option);
+    // }
+    // dayday= daySelect.options.length;
+    // console.log(daySelect.options.length);
+    // for (let i = 1; i <= daySelect.options.length; i++) {
+    //   let option = document.createElement('option');
+    //   option.value = option.text = i;
+    //   if (i == dateday[0]) {
+    //       option.selected = true;
+    //   }
+    //   daySelect.appendChild(option);
+    // }
+
+
+
   } else if(selectElement.value === 'option2') {
     individualForm.style.display = 'none';
+    organization.style.display = 'block';
     organizationForm.style.display = 'block';
+    document.getElementById('own_name').value = " "; 
+    document.getElementById('own_sex').value = " ";
+
+    document.getElementById('national').value = " ";
+
   }else{
     individualForm.style.display = 'none';
     organizationForm.style.display = 'none';
+    organization.style.display = 'none';
+    document.getElementById('own_name').value = " "; 
+    document.getElementById('own_sex').value = " ";
+
+    document.getElementById('national').value = " ";
   }
 }
 
 
 
 function addRow() {
-  const table = document.getElementById("businessTable");
+  const table = document.getElementById("table_3").getElementsByTagName('tbody')[0];
   const rowCount = table.rows.length;
   const row = table.insertRow(rowCount);
 
@@ -539,7 +651,7 @@ function addRow() {
   const cell3 = row.insertCell(2);
   const cell4 = row.insertCell(3);
 
-  cell1.innerHTML = rowCount; // STT (Số thứ tự)
+  cell1.innerHTML = rowCount +1; // STT (Số thứ tự)
   cell2.innerHTML = `<input type="text" name="tenNganh">`; // Tên ngành
   cell3.innerHTML = `<input type="text" name="maNganh">`; // Mã ngành
   cell4.innerHTML = `<input type="checkbox" name="nganhKinhDoanhChinh">`; // Ngành, nghề kinh doanh chính
@@ -547,3 +659,53 @@ function addRow() {
 function validatePhoneNumber(input) {
   input.value = input.value.replace(/[^0-9]/g, ''); // Loại bỏ các ký tự không phải số
 }
+
+function addRowrepresent() {
+  const table = document.getElementById("addRowrepresent");
+  const row = table.insertRow(-1);
+  for (let i = 0; i < 14; i++) {
+      const cell = row.insertCell(i);
+      if (i === 0) {
+          cell.innerHTML = table.rows.length - 1; // STT
+      } else if (i === 3) {
+          cell.innerHTML = '<input type="date" />';
+      }
+       else {
+          cell.innerHTML = '<input type="text" />';
+      }
+  }
+}
+
+function paybtn() {
+  // Hiển thị modal mã QR
+  document.getElementById('qrModal').style.display = 'flex';
+  
+  // Tạo mã QR
+  const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: "https://www.google.com/",
+      width: 200,
+      height: 200
+  });
+}
+
+function confirmPayment() {
+  closeModal();
+  document.getElementById('pay').style.display = 'none';
+  document.querySelector('.download').style.display = 'block';
+  document.getElementById('nopay').classList.style.display = 'none';
+  document.getElementById('paypay').classList.style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('qrModal').style.display = 'none';
+  document.getElementById('qrcode').innerHTML = ""; 
+}
+
+// Close the modal when the user clicks anywhere outside of the modal
+window.onclick = function(event) {
+  const modal = document.getElementById('qrModal');
+  if (event.target === modal) {
+      closeModal();
+  }
+}
+
